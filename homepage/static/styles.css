@@ -66,3 +66,14 @@ input {
     right: 10%;
     width: 80%;
 }
+
+#color-slider-container {
+    position: fixed;
+    bottom: 0px;
+    left: 10%;
+    right: 10%;
+    width: 82%;
+    height: 30px;
+    background-color: hsla(200, 80%, 22%, 0.6);
+    border: 1px solid #222;
+}

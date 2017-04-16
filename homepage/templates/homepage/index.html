@@ -2,22 +2,24 @@
 {% load static %}
 <html lang="en-US">
     <head>
-        {% block title %}<title>hydronote</title>{% endblock %}
+        {% block title %}<title>Nathan Clonts</title>{% endblock %}
 
-        {% block extended_head %}{% endblock %}
         <link rel="stylesheet" href="{% static "styles.css" %}" type="text/css" />
+        {% block extended_head %}{% endblock %}
     </head>
     
     <body>        
         <div id="foreground-container">
             <div id="topbox">
-                <p id="first-line">plibt</p>
+                <p id="first-line">hello, web</p>
             </div>
 
             <div id="midbox">
             </div>
             
-            <input id="color-slider" type="range" min="0" max="255" />
+            <div id="color-slider-container">
+                <input id="color-slider" type="range" min="0" max="255" value="200" />
+            </div>
         </div>
         
         <canvas id="canvas1" class="fractal-canvas" width="100%" height="100%"></canvas>

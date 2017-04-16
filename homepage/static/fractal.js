@@ -149,10 +149,13 @@ window.addEventListener('load', function() {
     // Set up slider
     var s = document.getElementById('color-slider');
     s.addEventListener('input', function() {
-        m1.baseHue = this.value * 1;
+        var hue = this.value * 1;
+        m1.baseHue = hue;
         m1.drawAll();
-        m2.baseHue = this.value * 1 - 30;
+        m2.baseHue = hue - 30;
         m2.drawAll();
+        document.getElementById('color-slider-container').style.backgroundColor =
+            'hsla(' + hue + ', 63%, 22%, 0.6)';
     });
 }, false);
 
