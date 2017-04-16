@@ -1,30 +1,30 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 {% load static %}
-<html lang="en-US">
-    <head>
-        {% block title %}<title>Nathan Clonts</title>{% endblock %}
 
-        <link rel="stylesheet" href="{% static "styles.css" %}" type="text/css" />
-        {% block extended_head %}{% endblock %}
-    </head>
-    
-    <body>        
-        <div id="foreground-container">
-            <div id="topbox">
-                <p id="first-line">hello, web</p>
-            </div>
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "styles.css" %}" type="text/css" />
+{% endblock %}
 
-            <div id="midbox">
-            </div>
-            
-            <div id="color-slider-container">
-                <input id="color-slider" type="range" min="0" max="255" value="200" />
-            </div>
+{% block content %}
+<body>        
+    <div id="foreground-container">
+        <div id="topbox">
+            <p id="first-line">hello, web</p>
         </div>
-        
-        <canvas id="canvas1" class="fractal-canvas" width="100%" height="100%"></canvas>
-        <canvas id="canvas2" class="fractal-canvas" width="100%" height="100%"></canvas>
-    </body>
 
-    <script type="text/javascript" src="{% static "fractal.js" %}"></script>
-</html>
+        <div id="midbox">
+        </div>
+
+        <div id="color-slider-container">
+            <input id="color-slider" type="range" min="0" max="255" value="200" />
+        </div>
+    </div>
+
+    <canvas id="canvas1" class="fractal-canvas" width="100%" height="100%"></canvas>
+    <canvas id="canvas2" class="fractal-canvas" width="100%" height="100%"></canvas>
+</body>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static "fractal.js" %}"></script>
+{% endblock %}

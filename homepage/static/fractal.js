@@ -135,7 +135,7 @@ window.addEventListener('load', function() {
     m1.drawAll();
     
     var m2 = new Mandelbrot(w, h, ctx2);
-    m2.baseHue = m1.baseHue - 30;
+    m2.baseHue = m1.baseHue - 40;
     m2.drawAll();
     
     // Redraw on resize
@@ -152,7 +152,7 @@ window.addEventListener('load', function() {
         var hue = this.value * 1;
         m1.baseHue = hue;
         m1.drawAll();
-        m2.baseHue = hue - 30;
+        m2.baseHue = hue - 40;
         m2.drawAll();
         document.getElementById('color-slider-container').style.backgroundColor =
             'hsla(' + hue + ', 63%, 22%, 0.6)';
