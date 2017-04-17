@@ -1,7 +1,3 @@
-* {
-        outline: 1px solid red;
-}
-
 input {
     position: absolute;
     z-index: 1;
