@@ -41,21 +41,17 @@ input {
     transition: opacity 2s;
     padding: 0;
     margin: 0;
-/*    width: 100%;*/
-/*    height: 100%;*/
 }
 
-#canvas1:hover {
+#canvas1:hover, #canvas2  {
     opacity: 0;
 }
 
-#canvas2 {
-    opacity: 0;
-}
-
-#canvas2:hover {
+#canvas2:hover, #canvas1 {
     opacity: 1;
 }
+
+
 
 #color-slider {
     position: fixed;

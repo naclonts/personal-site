@@ -120,7 +120,6 @@ window.addEventListener('load', function() {
     var canvas2 = document.getElementById('canvas2');
     var w = document.body.clientWidth;
     var h = document.body.clientHeight;
-    console.log(w + ', ' + h);
     canvas1.width = w;
     canvas1.height = h;
     canvas2.width = w;
@@ -163,6 +162,7 @@ window.addEventListener('load', function() {
     
     // Set up scroll handling
     scrollHandlerSetup();
+    
 }, false);
 
 
