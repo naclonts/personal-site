@@ -157,5 +157,26 @@ window.addEventListener('load', function() {
         document.getElementById('color-slider-container').style.backgroundColor =
             'hsla(' + hue + ', 63%, 22%, 0.6)';
     });
+    
+    // Set up scroll handling
+    scrollHandlerSetup();
 }, false);
+
+
+var lastScrollPosition = 0;
+
+// Set up scroll handler (to avoid transform3d with position: fixed bug)
+function scrollHandlerSetup() {
+    window.addEventListener('scroll', function(e) {
+        if (window.pageYOffset)
+            lastScrollPosition = window.pageYOffset;
+        else // IE
+            lastScrollPosition = document.documentElement.scrollTop;
+        
+        var canvasses = document.getElementsByClassName('fractal-canvas');
+        for (var i=0; i < canvasses.length; i++) {
+            canvasses[i].style.top = lastScrollPosition + 'px';
+        }
+    });
+}
 
