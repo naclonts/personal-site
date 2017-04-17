@@ -118,8 +118,9 @@ Mandelbrot.prototype.shuffle = function(arrayToShuffle) {
 window.addEventListener('load', function() {
     var canvas1 = document.getElementById('canvas1');
     var canvas2 = document.getElementById('canvas2');
-    var w = window.innerWidth;
-    var h = window.innerHeight;
+    var w = document.body.clientWidth;
+    var h = document.body.clientHeight;
+    console.log(w + ', ' + h);
     canvas1.width = w;
     canvas1.height = h;
     canvas2.width = w;
@@ -140,9 +141,11 @@ window.addEventListener('load', function() {
     
     // Redraw on resize
     window.addEventListener('resize', function() {
-        m1.setSize(window.innerWidth, window.innerHeight);
+        var w = document.body.clientWidth;
+        var h = document.body.clientHeight;
+        m1.setSize(w, h);
         m1.drawAll();
-        m2.setSize(window.innerWidth, window.innerHeight);
+        m2.setSize(w, h);
         m2.drawAll();
     });
     
