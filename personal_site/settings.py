@@ -26,7 +26,7 @@ SECRET_KEY = secret_settings.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nathanclonts.com', 'https://nathanclonts.com', '45.55.66.186',]
 
 
 # Application definition
