@@ -118,8 +118,8 @@ Mandelbrot.prototype.shuffle = function(arrayToShuffle) {
 window.addEventListener('load', function() {
     var canvas1 = document.getElementById('canvas1');
     var canvas2 = document.getElementById('canvas2');
-    var w = window.innerWidth;
-    var h = window.innerHeight;
+    var w = document.body.clientWidth;
+    var h = document.body.clientHeight;
     canvas1.width = w;
     canvas1.height = h;
     canvas2.width = w;
@@ -135,24 +135,51 @@ window.addEventListener('load', function() {
     m1.drawAll();
     
     var m2 = new Mandelbrot(w, h, ctx2);
-    m2.baseHue = m1.baseHue - 30;
+    m2.baseHue = m1.baseHue - 40;
     m2.drawAll();
     
     // Redraw on resize
     window.addEventListener('resize', function() {
-        m1.setSize(window.innerWidth, window.innerHeight);
+        var w = document.body.clientWidth;
+        var h = document.body.clientHeight;
+        m1.setSize(w, h);
         m1.drawAll();
-        m2.setSize(window.innerWidth, window.innerHeight);
+        m2.setSize(w, h);
         m2.drawAll();
     });
     
     // Set up slider
     var s = document.getElementById('color-slider');
     s.addEventListener('input', function() {
-        m1.baseHue = this.value * 1;
+        var hue = this.value * 1;
+        m1.baseHue = hue;
         m1.drawAll();
-        m2.baseHue = this.value * 1 - 30;
+        m2.baseHue = hue - 40;
         m2.drawAll();
+        document.getElementById('color-slider-container').style.backgroundColor =
+            'hsla(' + hue + ', 63%, 22%, 0.6)';
     });
+    
+    // Set up scroll handling
+    scrollHandlerSetup();
+    
 }, false);
+
+
+var lastScrollPosition = 0;
+
+// Set up scroll handler (to avoid transform3d with position: fixed bug)
+function scrollHandlerSetup() {
+    window.addEventListener('scroll', function(e) {
+        if (window.pageYOffset)
+            lastScrollPosition = window.pageYOffset;
+        else // IE
+            lastScrollPosition = document.documentElement.scrollTop;
+        
+        var canvasses = document.getElementsByClassName('fractal-canvas');
+        for (var i=0; i < canvasses.length; i++) {
+            canvasses[i].style.top = lastScrollPosition + 'px';
+        }
+    });
+}
 

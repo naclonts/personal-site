@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en-US">
+    <head>
+        {% block title %}<title>Nathan Clonts</title>{% endblock %}
+
+        <link rel="stylesheet" href="{% static "base-styles.css" %}" type="text/css" />
+        {% block stylesheets %}{% endblock %}
+    </head>
+    
+    <body>
+        <div id="site">
+            <input type="checkbox" id="navigation-check" value="<">
+            <label id="navigation-label" for="navigation-check">
+                
+                &lt;
+            </label>
+            
+            <nav id="menu">
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">projects</a></li>
+                    <li><a href="#">blog</a></li>
+                    <li><a href="#">bio</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </nav>
+            
+            <section id="content">
+            {% block content %}{% endblock %}
+            </section>
+        </div>
+    </body>
+    
+    
+    {% block scripts %}{% endblock %}
+</html>
