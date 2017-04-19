@@ -60,7 +60,7 @@ Mandelbrot.prototype.randomFillAll = function(interval) {
     this.randomCell();
 };
 
-Mandelbrot.prototype.randomCell = function() { 
+Mandelbrot.prototype.randomCell = function() {
     var point = this.drawOrder.pop();
     this.drawSquare(point.x * this.px, point.y * this.px);
     
@@ -189,7 +189,7 @@ function getWindowSize() {
     
     if (typeof(window.innerWidth) == 'number') {
         // Non-IE
-        w = window.innerWidth;
+        w = Math.min(window.innerWidth, document.body.clientWidth);
         h = window.innerHeight;
     } else if (document.documentElement &&
                (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
