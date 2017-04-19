@@ -17,13 +17,22 @@ body {
     overflow: hidden;
 }
 
+a {
+    color:#fff;
+    text-decoration:underline;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
 
 /*-------------------------*/
 /* Button to pull out menu */
 /*-------------------------*/
 #navigation-label {
     position: fixed;
-    top: 30%;
+    top: 9em;
     left: 0;
     height: 6em;
     line-height: 6em;

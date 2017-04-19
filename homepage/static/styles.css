@@ -1,9 +1,4 @@
-input {
-    position: absolute;
-    z-index: 1;
-}
-
-
+/* Container for everything except canvasses */
 #foreground-container {
     padding-left: 1%;
     padding-right: 1%;
@@ -13,26 +8,43 @@ input {
     text-align: center;
 }
 
+
+/* Shaded boxes */
 #topbox {
     margin: 0;
     background-color: hsla(0, 0%, 39%, 1);
     height: 8em;
 }
 
+#midbox {
+    height: 8em;
+    background-color: hsla(0, 0%, 75%, 0.5);
+    color: #fff;
+}
+
+#midbox h3, #midbox p {
+    margin: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+#midbox a {
+    letter-spacing: 2px;
+}
+
+/* Text */
 #first-line {
     margin: 0;
     position: relative;
     color: hsl(0, 0%, 94%);
     font-size: 2em;
     top: 1.5em;
+    text-align: center;
 }
 
-#midbox {
-    height: 200px;
-    background-color: hsla(0, 0%, 75%, 0.5);
-    color: #eee;
-}
 
+/* Canvasses for fractals */
 .fractal-canvas {
     position: absolute;
     top: 0;
