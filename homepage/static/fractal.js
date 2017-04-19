@@ -61,7 +61,6 @@ Mandelbrot.prototype.randomFillAll = function(interval) {
 };
 
 Mandelbrot.prototype.randomCell = function() { 
-    console.log(this.drawOrder.length);
     var point = this.drawOrder.pop();
     this.drawSquare(point.x * this.px, point.y * this.px);
     
@@ -118,8 +117,10 @@ Mandelbrot.prototype.shuffle = function(arrayToShuffle) {
 window.addEventListener('load', function() {
     var canvas1 = document.getElementById('canvas1');
     var canvas2 = document.getElementById('canvas2');
-    var w = document.body.clientWidth;
-    var h = document.body.clientHeight;
+    var dim = getWindowSize();
+    var w = dim.width;
+    var h = dim.height;
+    
     canvas1.width = w;
     canvas1.height = h;
     canvas2.width = w;
@@ -128,7 +129,7 @@ window.addEventListener('load', function() {
     var ctx2 = canvas2.getContext('2d');
     
     ctx1.fillStyle = 'black';
-    ctx1.fillRect(0, 0, canvas1.width, canvas1.height);
+    ctx1.fillRect(0, 0, w, h);
     
     var m1 = new Mandelbrot(w, h, ctx1);
 //    m1.randomFillAll(200);
@@ -140,11 +141,10 @@ window.addEventListener('load', function() {
     
     // Redraw on resize
     window.addEventListener('resize', function() {
-        var w = document.body.clientWidth;
-        var h = document.body.clientHeight;
-        m1.setSize(w, h);
+        var dim = getWindowSize();
+        m1.setSize(dim.width, dim.height);
         m1.drawAll();
-        m2.setSize(w, h);
+        m2.setSize(dim.width, dim.height);
         m2.drawAll();
     });
     
@@ -168,9 +168,9 @@ window.addEventListener('load', function() {
 
 var lastScrollPosition = 0;
 
-// Set up scroll handler (to avoid transform3d with position: fixed bug)
+// Set up scroll handler (to avoid transform3d with position:fixed bug)
 function scrollHandlerSetup() {
-    window.addEventListener('scroll', function(e) {
+    window.addEventListener('scroll', function (e) {
         if (window.pageYOffset)
             lastScrollPosition = window.pageYOffset;
         else // IE
@@ -183,3 +183,25 @@ function scrollHandlerSetup() {
     });
 }
 
+
+function getWindowSize() {
+    var w = 0, h = 0;
+    
+    if (typeof(window.innerWidth) == 'number') {
+        // Non-IE
+        w = window.innerWidth;
+        h = window.innerHeight;
+    } else if (document.documentElement &&
+               (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+        //IE 6+ in 'standards compliant mode'
+        w = document.documentElement.clientWidth;
+        h = document.documentElement.clientHeight;
+    } else if (document.body && (document.body.clientWidth || document.body.clientHeight))  {
+        //IE 4 compatible
+        w = document.body.clientWidth;
+        h = document.body.clientHeight;
+    }
+    
+    return { width: w,
+             height: h };
+}
