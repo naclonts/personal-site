@@ -7,6 +7,7 @@ body, html {
 body {
     padding: 0;
     margin: 0;
+    min-width: 300px;
 }
 
 #site {
@@ -18,8 +19,8 @@ body {
 }
 
 a {
-    color:#fff;
-    text-decoration:underline;
+    color: #fff;
+    text-decoration: underline;
 }
 
 a:hover {

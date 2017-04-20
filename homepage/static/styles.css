@@ -31,7 +31,13 @@
 
 #midbox a {
     letter-spacing: 2px;
+    transition: letter-spacing 0.4s;
 }
+
+#midbox a:hover {
+    letter-spacing: 4px;
+}
+
 
 /* Text */
 #first-line {
