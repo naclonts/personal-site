@@ -13,12 +13,5 @@ def post_list(request):
     context = { 'posts': posts }
     return render(request, 'blog/post_list.html', context=context)
 
-def post_detail(request, post_url):
-    print('-------------------------------'+post_url)
-    post = get_object_or_404(Post, url_title=post_url)
-    return render(request, 'blog/post.html')
-
-
 class PostView(generic.DetailView):
     model = Post
-#    return render(request, 'blog/post.html', context=context)

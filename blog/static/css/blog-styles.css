@@ -1,3 +1,7 @@
+#site {
+    background-color: hsl(97, 41%, 48%);
+}
+
 #navigation-label {
     position: fixed;
     top: 0em;
@@ -7,14 +11,26 @@
     width: 38.2%;
     z-index: 3;
     color: #aaa;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+#gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
 }
 
 .foreground-container {
-    margin-top: 2.2em;
+    margin: 2.2em auto;
     background-color: #fff;
     height: 100%;
-    width: 100%;
+    width: 98%;
     padding-bottom: 2em;
+    z-index: 5;
 }
 
 .blog-footer {
@@ -26,19 +42,25 @@
     text-align: center;
 }
 
+.blog-title {
+    padding-top: 10px;
+    text-align: center;
+    color: hsl(277, 77%, 18%);
+    transition: all 1s;
+}
+.blog-title:hover {
+    color: hsl(97, 100%, 23%);
+}
+
 .blog-listing {
     margin: auto;
     width: 90%;
 }
 
-.blog-listing h3 {
-    color: #666;
-}
-
 .blog-listing a {
     font-family: monospace;
     text-decoration: none;
-    color: #000;
+    color: hsl(97, 100%, 23%);
     letter-spacing: 1px;
 }
 .blog-listing a:hover {
@@ -49,12 +71,13 @@
     content: ' ';
     display: block;
     margin: 10px 0;
-    border: 1px solid #aaa;
+    border: 0.5px solid #aaa;
 }
 
 .post-date {
     color: #666;
-    text-align: center;
+    text-align: left;
+    font-size: 0.8em;
 }
 
 
@@ -66,7 +89,7 @@
 }
 
 .post-title {
-    color: #444;
+    color: hsl(97, 100%, 23%);
     text-align: center;
     transition: all 0.3s ease-in;
 }
@@ -75,5 +98,10 @@
 }
 
 .post-content {
-     margin: 0 2%;
+    margin: 0 2%;
+}
+
+/* Allow posts to have whitespace with <pre> tag, but don't monospace it */
+.post-content-pre {
+    font-family: inherit;
 }

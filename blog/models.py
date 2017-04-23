@@ -17,8 +17,8 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     slug = models.SlugField(unique=True, blank=True)
-    created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
     
     class Meta:
         ordering = ['-created_date']
@@ -26,6 +26,11 @@ class Post(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
+        
+    def has_been_modified(self):
+        print(self.created_date)
+        print(self.modified_date)
+        return self.created_date != self.modified_date
         
     def save(self, **kwargs):
         slug_str = '%s' % self.title

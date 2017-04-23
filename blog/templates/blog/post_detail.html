@@ -1,13 +1,27 @@
 {% extends "./base_blog.html" %}
+{% load static %}
 
 {% block content %}
 <body>
     <div class="foreground-container">
         <div class="post-container">
-            <h1 class="post-title">{{ post.title | safe }}</h1>
-            <p class="post-content">{{ post.text | safe }}</p>
-            <p class="post-date">{{ post.created_date }}</p>
+            <h1 class="post-title">{{ post.title|safe }}</h1>
+            
+            <!-- Wrap content in <pre> to allow whitespace  -->
+            <pre class="post-content-pre">
+                <p class="post-content">{{ post.text|safe }}</p>
+            </pre>
+            <p class="post-date">
+                Created {{ post.created_date }}{% if post.has_been_modified %}, modified {{ post.modified_date }}
+                {% endif %}
+            </p>
         </div>
     </div>
+    <canvas id="gradient-background"></canvas>
 </body>
 {% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/blog-background.js" %}" type="text/javascript" ></script>
+{% endblock %}
+
