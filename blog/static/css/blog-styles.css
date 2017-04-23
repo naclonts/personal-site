@@ -15,7 +15,7 @@
     border-bottom: 1px solid #ddd;
 }
 
-#gradient-background {
+#background-canvas {
     position: absolute;
     top: 0;
     left: 0;

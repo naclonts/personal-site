@@ -12,8 +12,9 @@ Debugger.log = function(message) {
 }
 
 function windowLoadHandler() {
+    if (!canvasSupport) return;
     backgroundLines();
-//    roughLines();
+//  roughLines();
 //	gradientFractals();
     scrollHandlerSetup();
 }
@@ -24,12 +25,12 @@ function backgroundLines() {
     var windowWidth = dim.width;
     var lineHeight = 20;
     var numLines = windowHeight / lineHeight;
-    
+
     var baseHue = 97;
     var sat = 70;
     var lum = 50;
-    var ctx = document.getElementById('gradient-background').getContext('2d');
-    
+    var ctx = document.getElementById('background-canvas').getContext('2d');
+
     for (var i=0; i < numLines; i++) {
         var hue = baseHue + Math.floor(Math.random() * 25);
         lum += Math.random() * 50 - 25;
@@ -69,3 +70,17 @@ function getWindowSize() {
              height: h };
 }
 
+var lastScrollPosition = 0;
+
+// Set up scroll handler (to avoid transform3d with position:fixed bug)
+function scrollHandlerSetup() {
+    window.addEventListener('scroll', function (e) {
+        if (window.pageYOffset)
+            lastScrollPosition = window.pageYOffset;
+        else // IE
+            lastScrollPosition = document.documentElement.scrollTop;
+        
+        var canvas = document.getElementById('background-canvas');
+        canvas.style.top = lastScrollPosition + 'px';
+    });
+}
