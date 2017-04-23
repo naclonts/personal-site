@@ -4,14 +4,6 @@ from django.utils import timezone
 
 import string
 
-def get_url_title(title):
-    print(title)
-    punctuation = set(string.punctuation)
-    title_no_punc = ''.join(ch for ch in title if ch not in punctuation)
-    title_recombo = ''.join(title_no_punc).lower()
-    return '_'.join(title_recombo.split())
-
-
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
