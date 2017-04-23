@@ -45,11 +45,16 @@
     text-decoration: underline;
 }
 
-.blog-listing p:after {
+.blog-listing:after {
     content: ' ';
     display: block;
     margin: 10px 0;
     border: 1px solid #aaa;
+}
+
+.post-date {
+    color: #666;
+    text-align: center;
 }
 
 
