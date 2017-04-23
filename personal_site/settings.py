@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+		'django.template.context_processors.media',
             ],
         },
     },
@@ -77,6 +79,12 @@ WSGI_APPLICATION = 'personal_site.wsgi.application'
 
 DATABASES = {
     'default': {
+	'ENGINE': 'django.db.backends.mysql',
+	'NAME': secret_settings.DB_NAME,
+        'USER': secret_settings.DB_USER,
+        'PASSWORD': secret_settings.DB_PASSWORD,
+        'HOST': secret_settings.DB_HOST,
+        'PORT': '',
     }
 }
 
@@ -122,3 +130,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/personal_site/'
+MEDIA_ROOT = '/var/www/media/personal_site/'
