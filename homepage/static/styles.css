@@ -31,6 +31,7 @@
 
 #midbox a {
     letter-spacing: 2px;
+    color: #fff;;
     transition: letter-spacing 0.4s;
 }
 

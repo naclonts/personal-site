@@ -1,0 +1,29 @@
+body {
+    background-color: hsl(200, 3%, 50%);
+}
+
+.container {
+    margin: 10px;
+    padding: 10px;
+    background-color: #eee;
+    height: 8em;
+    top: 5%; 
+    box-shadow: 0 0 10px black;
+    vertical-align: middle;
+}
+
+.container h2 {
+    color: hsl(200, 100%, 27%);
+    text-align: center;
+}
+
+.container a {
+    color: hsl(200, 100%, 27%);
+}
+
+.img-404 {
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+

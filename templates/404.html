@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "404-styles.css" %}" type="text/css" />
+{% endblock %}
+    
+{% block content %}
+<body>
+    <div class="container">
+        <h2>Dangus URLs...</h2>
+        <p>It looks like this page doesn't exist in our current dimension. Try clicking the menu tab to <a href="https://nathanclonts.com">continue your journey.</a> Cheers!</p>
+    </div>
+    <img class="img-404" src="{{MEDIA_URL}}beerdream.jpg" alt="Cheers!">
+</body>
+{% endblock %}
