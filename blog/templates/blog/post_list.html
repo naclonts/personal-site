@@ -1,17 +1,14 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-
-{% block stylesheets %}
-<!--<link rel="stylesheet" href="{% static "styles.css" %}" type="text/css" />-->
-{% endblock %}
+{% extends "./base_blog.html" %}
 
 {% block content %}
-<body>        
-    {% for post in posts %}
-    <div class="blog-listing">
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.text }}</p>
+<body>
+    <div class="foreground-container">
+        {% for post in posts %}
+        <div class="blog-listing">
+            <h3><a href="{% url 'posts' slug=post.slug %}">{{ post.title }}</a></h3>
+            <p>{{ post.text }}</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </body>
 {% endblock %}
