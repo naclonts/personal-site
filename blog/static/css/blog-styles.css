@@ -1,5 +1,16 @@
+#navigation-label {
+    position: fixed;
+    top: 0em;
+    left: 0;
+    height: 1em;
+    line-height: 1em;
+    width: 38.2%;
+    z-index: 3;
+    color: #aaa;
+}
+
 .foreground-container {
-    position: relative;
+    margin-top: 2.2em;
     background-color: #fff;
     height: 100%;
     width: 100%;

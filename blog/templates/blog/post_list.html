@@ -5,8 +5,8 @@
     <div class="foreground-container">
         {% for post in posts %}
         <div class="blog-listing">
-            <h3><a href="{% url 'posts' slug=post.slug %}">{{ post.title }}</a></h3>
-            <p>{{ post.text }}</p>
+            <h3><a href="{% url 'posts' slug=post.slug %}">{{ post.title | safe }}</a></h3>
+            <p>{{ post.text | safe }}</p>
         </div>
         {% endfor %}
     </div>
