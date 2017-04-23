@@ -2,10 +2,20 @@
 {% load staticfiles %}
 <html lang="en-US">
     <head>
+        <!-- Meta       -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--        <meta name="description" content="">-->
+        <meta name="description" content="I'm a developer with a keen interest in the full stack of web development and a hearty enjoyment of generative art.">
         
+        <!-- Favicons       -->
+        <link rel="icon" type="image/png" sizes="32x32"
+              href="{{MEDIA_URL}}favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96"
+              href="{{MEDIA_URL}}favicons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+              href="{{MEDIA_URL}}favicons/favicon-16x16.png">
+        
+        <!-- Beginning of content       -->
         {% block title %}<title>Nathan Clonts</title>{% endblock %}
 
         <link rel="stylesheet" href="{% static "base-styles.css" %}" type="text/css" />
