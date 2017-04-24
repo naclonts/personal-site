@@ -1,8 +1,11 @@
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.template.defaultfilters import slugify
 
+import re
 import string
+
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
@@ -20,8 +23,6 @@ class Post(models.Model):
         self.save()
         
     def has_been_modified(self):
-        print(self.created_date)
-        print(self.modified_date)
         return self.created_date != self.modified_date
         
     def save(self, **kwargs):
@@ -32,19 +33,10 @@ class Post(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return 'blog:posts', (self.slug,)
-    
-    def url_title(self):
-        punctuation = set(string.punctuation)
-        title_no_punc = ''.join(ch for ch in self.title if ch not in punctuation)
-        title_recombo = ''.join(title_no_punc).lower()
-        return '_'.join(title_recombo.split())
 
     def __str__(self):
         return self.title
 
-
-import re
-from django.template.defaultfilters import slugify
 
 def unique_slugify(instance, value, slug_field_name='slug', queryset=None,
                    slug_separator='-'):
