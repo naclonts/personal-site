@@ -12,6 +12,7 @@
 /* Shaded boxes */
 #topbox {
     margin: 0;
+    top: 0;
     background-color: hsla(0, 0%, 39%, 1);
     height: 8em;
 }
@@ -19,7 +20,7 @@
 #midbox {
     position: relative;
     height: 8em;
-    background-color: hsla(0, 0%, 72%, 0.83);
+    background-color: hsla(0, 0%, 66%, 0.9);
     color: #fff;
 }
 
@@ -33,13 +34,13 @@
 }
 
 #midbox a {
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: #fff;;
     transition: letter-spacing 0.4s;
 }
 
 #midbox a:hover {
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 }
 
 /* GitHub image link */
@@ -56,12 +57,16 @@
 
 
 /* Text */
-#first-line {
+#topbox h1 {
+    padding-top: 1%;
+    color: hsl(0, 0%, 94%);
+    top: 1em;
+    text-align: center;
+}
+#topbox p {
     margin: 0;
     position: relative;
     color: hsl(0, 0%, 94%);
-    font-size: 2em;
-    top: 1.5em;
     text-align: center;
 }
 
@@ -128,7 +133,7 @@ input[type=range]::-ms-track {
   cursor: pointer;
 
   /* Hides the slider so custom styles can be added */
-  background: transparent; 
+  background: transparent;
   border-color: transparent;
   color: transparent;
 }
@@ -246,4 +251,3 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: hsla(200, 80%, 22%, 0.6);
     border: 1px solid #222;
 }
-
