@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="I'm a developer with a keen interest in the full stack of web development and a hearty enjoyment of generative art.">
-        
+
         <!-- Favicons       -->
         <link rel="icon" type="image/png" sizes="32x32"
               href="{{MEDIA_URL}}favicons/favicon-32x32.png">
@@ -14,41 +14,41 @@
               href="{{MEDIA_URL}}favicons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16"
               href="{{MEDIA_URL}}favicons/favicon-16x16.png">
-        
+
         <!-- Beginning of content       -->
         {% block title %}<title>Nathan Clonts</title>{% endblock %}
 
         <link rel="stylesheet" href="{% static "base-styles.css" %}" type="text/css" />
         {% block stylesheets %}{% endblock %}
     </head>
-    
+
     <body>
         <div id="site">
             <input type="checkbox" id="navigation-check">
             <label id="navigation-label" for="navigation-check">
                 &gt;
             </label>
-            
+
             <nav id="menu">
                 <ul>
-                    <li><a href="https://nathanclonts.com">home</a></li>
-                    <li><a href="https://nathanclonts.com">projects</a></li>
-                    <li><a href="https://nathanclonts.com/blog/">blog</a></li>
+                    <li><a href="{% url "homepage:index" %}">home</a></li>
+                    <li><a href="{% url "homepage:index" %}">projects</a></li>
+                    <li><a href="{% url "blog:post_list" %}">blog</a></li>
                     <li><a href="#">bio</a></li>
                     <li><a href="#">contact</a></li>
                 </ul>
             </nav>
-            
+
             <section id="content">
             {% block content %}{% endblock %}
             </section>
-            
+
             <section id="footer">
             {% block footer %}{% endblock %}
             </section>
         </div>
     </body>
-    
+
     <script src="{% static "base-interactions.js" %}" type="text/javascript" ></script>
     {% block scripts %}{% endblock %}
 </html>
