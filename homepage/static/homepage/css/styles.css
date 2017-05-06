@@ -36,11 +36,19 @@
 }
 
 /* Text */
-#topbox h1 {
+#topbox h1, #topbox h2 {
     padding-top: 1%;
     color: hsl(0, 0%, 94%);
     top: 1em;
     text-align: center;
+}
+#topbox h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+#topbox h2 {
+    padding-top: 0;
+    margin-top: 0;
 }
 
 #midbox {
@@ -82,8 +90,6 @@
 /* GitHub image link */
 .github-cat-block {
     position: relative;
-    right: 1%;
-    top: 2em;
     width: 120px;
     height: 120px;
     margin: auto;
