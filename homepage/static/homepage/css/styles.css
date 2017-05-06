@@ -6,6 +6,14 @@
     z-index: 1;
     width: 97%;
     text-align: center;
+
+    /* big fonts for better visibility */
+    font-size: 1.25em;
+    text-shadow: /* black outline to text */
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 
@@ -15,16 +23,12 @@
     margin: 0;
     padding: 0;
     top: 0;
-    background-color: hsla(0, 0%, 39%, 1);
-    min-height: 8em;
     width: 100%;
     text-align: center;
 }
 #topbox p {
     text-align: center;
     vertical-align: middle;
-    /*margin: auto;*/
-    /*padding: 5px;*/
     max-width: 35em;
     margin: 0 auto;
     padding-bottom: 1em;
@@ -39,26 +43,22 @@
     text-align: center;
 }
 
-/* Don't expand text too far on big screens */
-/*@media screen and (min-width: 800px) {
-    #topbox p {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-}*/
-
 #midbox {
     position: relative;
-    overflow: auto;
+    margin: 0 auto;
     min-height: 8em;
     padding: 10px;
-    background-color: hsla(0, 0%, 66%, 0.9);
     color: #fff;
+    text-shadow: /* black outline to text */
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 #midbox h3, #midbox p {
     margin: 0;
-    padding-left: 20px;
+    padding-left: 50px;
     width: 70%;
     text-align: left;
     float: left;
@@ -71,6 +71,8 @@
     letter-spacing: 1px;
     color: #fff;;
     transition: letter-spacing 0.4s;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 #midbox a:hover {
@@ -78,24 +80,33 @@
 }
 
 /* GitHub image link */
-.github-link {
-    position: absolute;
+.github-cat-block {
+    position: relative;
     right: 1%;
     top: 2em;
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    padding: 0;
+    border: 4px solid 'white';
+}
+.github-link {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
     margin: auto;
     padding: 0;
     object-fit: cover;
+    image-rendering: crisp-edges;
 }
 /* Canvas to draw cat */
 #catface {
     opacity: 0;
     position: absolute;
-    right: 1%;
-    top: 2em;
-    width: 60px;
-    height: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
     margin: auto;
     padding: 0;
     object-fit: cover;

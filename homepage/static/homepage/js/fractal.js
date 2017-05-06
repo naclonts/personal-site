@@ -1,17 +1,11 @@
 
 var Mandelbrot = function(w, h, ctx) {
-    this.width = w;
-    this.height = h;
     this.ctx = ctx;
-    
-    this.panX = 2.0;
-    this.panY = 1.5;
-    this.px = Math.floor(Math.sqrt(w * h)) / 35;
+    this.setSize(w, h);
     this.magnification = 250;
     this.limit = 10;
     this.baseHue = 200;
     this.hueVariation = 30;
-    
     this.drawOrder = [];
 };
 Mandelbrot.prototype.constructor = Mandelbrot;
@@ -22,6 +16,8 @@ Mandelbrot.prototype.setSize = function(width, height) {
     this.ctx.canvas.width = width;
     this.ctx.canvas.height = height;
     this.px = Math.floor(Math.sqrt(width * height)) / 35;
+    this.panX = width / 400; // works out to about 2 to 4 - centers 'brot
+    this.panY = 1.5;
 };
 
 Mandelbrot.prototype.valueAt = function(x, y) {
@@ -45,7 +41,7 @@ Mandelbrot.prototype.drawAll = function() {
         for (var y=0; y < this.height; y+=this.px) {
             this.drawSquare(x, y);
         }
-    }   
+    }
 };
 
 Mandelbrot.prototype.clear = function() {
@@ -54,7 +50,7 @@ Mandelbrot.prototype.clear = function() {
 };
 
 // Gradually (randomly) fill in mandelbrot. interval: wait time in ms.
-Mandelbrot.prototype.randomFillAll = function(interval) {    
+Mandelbrot.prototype.randomFillAll = function(interval) {
     this.drawOrder = this.randomDrawOrder();
     this.animationInterval = interval;
     this.randomCell();
@@ -63,11 +59,11 @@ Mandelbrot.prototype.randomFillAll = function(interval) {
 Mandelbrot.prototype.randomCell = function() {
     var point = this.drawOrder.pop();
     this.drawSquare(point.x * this.px, point.y * this.px);
-    
+
     if (this.drawOrder.length > 0)
         window.setTimeout(this.randomCell.bind(this), this.animationInterval);
 };
-    
+
 Mandelbrot.prototype.drawSquare = function(x1, y1) {
     var lumin = this.valueAt(x1/this.magnification - this.panX,
                              y1/this.magnification - this.panY);
@@ -79,7 +75,7 @@ Mandelbrot.prototype.drawSquare = function(x1, y1) {
     } else {
         var hue = this.baseHue + Math.random() * this.hueVariation;
     }
-    
+
     var style = 'hsla(' + hue + ', 100%, ' + lumin + '%, 1)';
     this.ctx.fillStyle = style;
 
@@ -120,25 +116,25 @@ window.addEventListener('load', function() {
     var dim = getWindowSize();
     var w = dim.width;
     var h = dim.height;
-    
+
     canvas1.width = w;
     canvas1.height = h;
     canvas2.width = w;
     canvas2.height = h;
     var ctx1 = canvas1.getContext('2d');
     var ctx2 = canvas2.getContext('2d');
-    
+
     ctx1.fillStyle = 'black';
     ctx1.fillRect(0, 0, w, h);
-    
+
     var m1 = new Mandelbrot(w, h, ctx1);
 //    m1.randomFillAll(200);
     m1.drawAll();
-    
+
     var m2 = new Mandelbrot(w, h, ctx2);
     m2.baseHue = m1.baseHue - 40;
     m2.drawAll();
-    
+
     // Redraw on resize
     window.addEventListener('resize', function() {
         var dim = getWindowSize();
@@ -147,7 +143,7 @@ window.addEventListener('load', function() {
         m2.setSize(dim.width, dim.height);
         m2.drawAll();
     });
-    
+
     // Set up slider
     var s = document.getElementById('color-slider');
     s.addEventListener('input', function() {
@@ -159,10 +155,10 @@ window.addEventListener('load', function() {
         document.getElementById('color-slider-container').style.backgroundColor =
             'hsla(' + hue + ', 63%, 22%, 0.6)';
     });
-    
+
     // Set up scroll handling
     scrollHandlerSetup();
-    
+
 }, false);
 
 
@@ -175,7 +171,7 @@ function scrollHandlerSetup() {
             lastScrollPosition = window.pageYOffset;
         else // IE
             lastScrollPosition = document.documentElement.scrollTop;
-        
+
         var canvasses = document.getElementsByClassName('fractal-canvas');
         for (var i=0; i < canvasses.length; i++) {
             canvasses[i].style.top = lastScrollPosition + 'px';
@@ -186,7 +182,7 @@ function scrollHandlerSetup() {
 
 function getWindowSize() {
     var w = 0, h = 0;
-    
+
     if (typeof(window.innerWidth) == 'number') {
         // Non-IE
         w = Math.min(window.innerWidth, document.body.clientWidth);
@@ -201,7 +197,7 @@ function getWindowSize() {
         w = document.body.clientWidth;
         h = document.body.clientHeight;
     }
-    
+
     return { width: w,
              height: h };
 }
