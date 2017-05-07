@@ -27,11 +27,17 @@
     margin: 8% 2% 2% 2%;
     padding: 2%;
     text-align: center;
+    max-width: 100%;
 
     border: 10px solid rgba(102, 102, 102, 0.1);
 
     background: #403B4A;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #eaebdf, #716f75);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #eaebdf, #b7b6b9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
+@media screen and (max-width: 500px) {
+    .contact-info textarea {
+        width: 96%;
+    }
 }
