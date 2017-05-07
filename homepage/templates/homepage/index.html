@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static "homepage/css/styles.css" %}" type="text/css" />
@@ -8,12 +8,12 @@
 {% block content %}
 <body>
     <div id="foreground-container">
-        <div id="topbox">
+        <div id="intro">
             <h1>Hi, I'm Nathan!</h1>
             <h2>I make websites.</h2>
         </div>
 
-        <div id="midbox">
+        <div id="current-projects">
             <h3 id="current-project-title">Current projects</h3>
             <p><a href="https://nathanclonts.com/hydronote/">hydronote</a>: a lightweight note-taking app in the cloud</p>
             <p><a href="https://nathanclonts.com/podcast/">Podcast site</a>: an in-progress Django-based podcast website</p>
@@ -30,6 +30,8 @@
             <input id="color-slider" type="range" min="0" max="255" value="200" />
         </div>
     </div>
+
+
 
     <canvas id="canvas1" class="fractal-canvas" ></canvas>
     <canvas id="canvas2" class="fractal-canvas" ></canvas>

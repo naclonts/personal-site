@@ -17,8 +17,9 @@
 }
 
 
+
 /* Shaded boxes */
-#topbox {
+#intro {
     position: relative;
     margin: 0;
     padding: 0;
@@ -26,7 +27,7 @@
     width: 100%;
     text-align: center;
 }
-#topbox p {
+#intro p {
     text-align: center;
     vertical-align: middle;
     max-width: 35em;
@@ -36,26 +37,28 @@
 }
 
 /* Text */
-#topbox h1, #topbox h2 {
+#intro h1, #intro h2 {
     padding-top: 1%;
     color: hsl(0, 0%, 94%);
     top: 1em;
     text-align: center;
 }
-#topbox h1 {
+#intro h1 {
     font-size: 2em;
     margin-bottom: 0;
 }
-#topbox h2 {
+#intro h2 {
     padding-top: 0;
     margin-top: 0;
 }
 
-#midbox {
+#current-projects {
     position: relative;
     margin: 0 auto;
     min-height: 8em;
+    overflow: auto;
     padding: 10px;
+    word-wrap: break-word;
     color: #fff;
     text-shadow: /* black outline to text */
         -1px -1px 0 #000,
@@ -64,18 +67,18 @@
         1px 1px 0 #000;
 }
 
-#midbox h3, #midbox p {
+#current-projects h3, #current-projects p {
     margin: 0;
     padding-left: 50px;
     width: 70%;
     text-align: left;
     float: left;
 }
-#midbox p {
+#current-projects p {
     padding-top: 20px;
 }
 
-#midbox a {
+#current-projects a {
     letter-spacing: 1px;
     color: #fff;;
     transition: letter-spacing 0.4s;
@@ -83,7 +86,7 @@
     font-weight: bold;
 }
 
-#midbox a:hover {
+#current-projects a:hover {
     letter-spacing: 3px;
 }
 
@@ -109,8 +112,6 @@
 /* Canvas to draw cat */
 #catface {
     opacity: 0;
-    position: absolute;
-    left: 0;
     width: 100%;
     height: 100%;
     margin: auto;
@@ -128,6 +129,7 @@
     top: 0;
     left: 0;
     z-index: 0;
+    max-width: 100%;
     transition: opacity 2s;
     padding: 0;
     margin: 0;
