@@ -8,13 +8,19 @@
 {% block content %}
 <div class="bg-container">
     <div class="contact-info">
-        <h1>Contact Me</h1>
+        <h1>Contact</h1>
         <p>
             Phone number: (254) 780-6766
         </p>
         <p>
-            Email address: nacclonts@gmail.com
+            Want to talk about a project? Shoot me an email at nacclonts@gmail.com or fill out the form below and I'll get back to you.
         </p>
+
+        <form role="form" action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Send</button>
+        </form>
     </div>
 </div>
 {% endblock %}
