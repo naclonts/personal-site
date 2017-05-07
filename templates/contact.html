@@ -10,10 +10,10 @@
     <div class="contact-info">
         <h1>Contact</h1>
         <p>
-            Want to talk about a project? Shoot me an email at nacclonts@gmail.com or fill out the form below and I'll get back to you.
+            Want to talk about a project? Shoot me a message in the text box below and I'll get back to you soon!
         </p>
 
-        <form role="form" action="" method="post">
+        <form class="contact-form" role="form" action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Send</button>
