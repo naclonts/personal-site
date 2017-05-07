@@ -133,12 +133,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/personal_site/'
 MEDIA_ROOT = '/var/www/media/personal_site/'
-
-
-# Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = secret_settings.EMAIL_HOST
-EMAIL_PORT = secret_settings.EMAIL_PORT
-EMAIL_HOST_USER = secret_settings.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = secret_settings.EMAIL_HOST_PASSWORD
-EMAIL_USE_TLS = secret_settings.EMAIL_USE_TLS
