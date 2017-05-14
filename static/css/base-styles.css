@@ -17,10 +17,12 @@ body {
 
 a {
     text-decoration: underline;
+    transition: 0.2s all;
 }
 
 a:hover {
-    font-weight: bold;
+    letter-spacing: 0.2em;
+    font-size: 1.25em;
 }
 
 #content {

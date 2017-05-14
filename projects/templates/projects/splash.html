@@ -1,5 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "projects/css/styles.css" %}" type="text/css" />
+{% endblock %}
 
 {% block content %}
-Yo Yo Yo
+<div id="current-projects">
+    <h1 id="current-project-title">Current projects</h3>
+    <div class="project">
+        <h3><a href="https://nathanclonts.com/hydronote/">hydronote</a></h3>
+        <p>a lightweight note-taking app in the cloud</p>
+    </div>
+    <div class="project">
+        <h3><a href="https://nathanclonts.com/podcast/">Podcast site</a></h3>
+        <p>an in-progress Django-based podcast website</p>
+    </div>
+</div>
 {% endblock %}

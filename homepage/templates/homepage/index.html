@@ -11,12 +11,11 @@
         <div id="intro">
             <h1>Hi, I'm Nathan!</h1>
             <h2>I make websites.</h2>
-        </div>
-
-        <div id="current-projects">
-            <h3 id="current-project-title">Current projects</h3>
-            <p><a href="https://nathanclonts.com/hydronote/">hydronote</a>: a lightweight note-taking app in the cloud</p>
-            <p><a href="https://nathanclonts.com/podcast/">Podcast site</a>: an in-progress Django-based podcast website</p>
+            <p>
+                Click the menu tab on the left to check out my
+                <br /><a href="{% url "projects:splash" %}">current projects</a> or
+                <br /><a href="{% url "contact" %}">contact me</a>.
+            </p>
         </div>
 
         <div class="github-cat-block">
