@@ -36,28 +36,26 @@
                 </div>
         </div>
 
-        <!-- <div class="github-cat-block">
+        <div id="github-cat-block">
             <a href="https://github.com/kokopelli314">
                 <img class="github-link" src="{{ MEDIA_URL }}GitHub-Mark-421px-grey.png" />
                 <canvas id="catface"></canvas>
             </a>
-        </div> -->
+        </div>
 <!--
         <div id="color-slider-container">
             <input id="color-slider" type="range" min="0" max="255" value="200" />
         </div> -->
     </div>
 
-
-
-    <canvas id="canvas1" class="fractal-canvas" ></canvas>
-    <canvas id="canvas2" class="fractal-canvas" ></canvas>
+    <canvas id="canvas2" class="fractal-canvas active" ></canvas>
+    <canvas id="canvas1" class="fractal-canvas active" ></canvas>
 </body>
 {% endblock %}
 
 {% block scripts %}
 <script type="text/javascript" src="{% static "homepage/js/fractal.js" %}"></script>
-<!-- <script type="text/javascript" src="{% static "homepage/js/animation-catface.js" %}"></script> -->
+<script type="text/javascript" src="{% static "homepage/js/animation-catface.js" %}"></script>
 
 <script src="{% static "homepage/js/vivus/vivus.min.js" %}" type="text/javascript" ></script>
 <script src="{% static "homepage/js/splash-animations.js" %}" type="text/javascript" ></script>

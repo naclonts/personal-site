@@ -1,12 +1,29 @@
 window.addEventListener('load', function(res) {
+    // Draw animations
+    startAnimations();
+
+    // Alternate fractal canvasses when hovering over heart
+    document.getElementById('heart').addEventListener('mouseenter', function(e) {
+        document.getElementById('canvas1').classList.remove('active');
+    });
+    document.getElementById('heart').addEventListener('mouseleave', function(e) {
+        document.getElementById('canvas1').classList.add('active');
+    });
+});
+
+
+function startAnimations() {
+    // Fade in "I"
     document.getElementById('line1').classList.add('visible');
 
+    // Draw SVG heart
     new Vivus('heart', { duration: 200, start: 'autostart' });
 
+    // Scroll in words below heart
     var initialWordDelay = 3000;
     var wordDisplayTime = 1500;
-    // break;
     var scrollWords = document.getElementsByClassName('scroll-word');
+
     for (var i=0; i < scrollWords.length; i++) {
         var currentWord = scrollWords[i];
         setTimeout(
@@ -29,8 +46,15 @@ window.addEventListener('load', function(res) {
             setTimeout(function (word) {
                 word.classList.add('final-line');
             },
-            initialWordDelay + wordDisplayTime * (i+1),// - wordDisplayTime/2,
+            initialWordDelay + wordDisplayTime * (i+1),
             currentWord);
         }
     }
-});
+
+    // Slide in github link kitty
+    setTimeout(function () {
+        document.getElementById('github-cat-block').classList.add('visible');
+    }, initialWordDelay + wordDisplayTime * (i+1));
+
+
+}
