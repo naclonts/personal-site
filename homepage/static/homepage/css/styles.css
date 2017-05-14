@@ -1,7 +1,6 @@
 /* Container for everything except canvasses */
 #foreground-container {
-    padding-left: 1%;
-    padding-right: 1%;
+    padding: 0 1%;
     position: absolute;
     z-index: 1;
     width: 97%;
@@ -9,7 +8,7 @@
     /*text-align: center;*/
 
     /* big fonts for better visibility */
-    font-size: 1.25em;
+    /*font-size: 1.25em;*/
     text-shadow: /* black outline to text */
         -1px -1px 0 #000,
         1px -1px 0 #000,
@@ -70,17 +69,28 @@
     height: 100%;
 }
 
-.intro-animation h1, .bottomline li {
-    font-size: 2.5em;
+#line1 {
+    font-size: 4em;
+    font-family: monospace;
+    color: white;
+}
+.bottomline li {
+    font-size: 3em;
     color: white;
 }
 
-.line1 {
+#line1 {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 15%;
     margin: 0;
+
+    opacity: 0;
+    transition: 1.0s opacity;
+}
+#line1.visible {
+    opacity: 1;
 }
 
 #heart {
@@ -90,10 +100,13 @@
 
 .bottomline {
     display: block;
+    position: relative;
     text-align: center;
-    overflow: hidden;
     margin: 0 50%;
     width: 100%;
+    min-height: 5em;
+    overflow-x: hidden;
+    white-space: nowrap;
 }
 .bottomline ol {
     list-style: none;
@@ -101,10 +114,18 @@
 .bottomline li {
     position: absolute;
     left: 100vw;
-    transition: 0.5s left;
+    transition: 0.5s left, 1.5s letter-spacing;
 }
 .bottomline li.active-line {
     left: 0vw;
+    width: 100%;
+}
+.bottomline li.finished-line {
+    left: -100vw;
+    width: 100%;
+}
+.bottomline li.final-line {
+    letter-spacing: 4px;
 }
 
 

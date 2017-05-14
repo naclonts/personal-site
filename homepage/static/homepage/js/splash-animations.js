@@ -1,13 +1,36 @@
 window.addEventListener('load', function(res) {
-    console.log('starting');
-    var w = window.innerHeight;
-    console.log(w);
-    document.getElementById('heart')
-    new Vivus('heart', { duration: 170, start: 'autostart' });
+    document.getElementById('line1').classList.add('visible');
 
+    new Vivus('heart', { duration: 200, start: 'autostart' });
+
+    var initialWordDelay = 3000;
+    var wordDisplayTime = 1500;
+    // break;
     var scrollWords = document.getElementsByClassName('scroll-word');
-    var currentWord = scrollWords[0];
-    setTimeout(function () {
-        currentWord.classList.toggle('active-line');
-    }, 500);
+    for (var i=0; i < scrollWords.length; i++) {
+        var currentWord = scrollWords[i];
+        setTimeout(
+            function (word) {
+                word.classList.add('active-line');
+            },
+            initialWordDelay + wordDisplayTime * i,
+            currentWord);
+
+        // Move word off the screen, unless it's the last one
+        if (i < scrollWords.length-1) {
+            setTimeout(function (word) {
+                word.classList.remove('active-line');
+                word.classList.add('finished-line');
+            },
+            initialWordDelay + wordDisplayTime * (i+1),
+            currentWord);
+        // Last one: add "final" styles
+        } else {
+            setTimeout(function (word) {
+                word.classList.add('final-line');
+            },
+            initialWordDelay + wordDisplayTime * (i+1),// - wordDisplayTime/2,
+            currentWord);
+        }
+    }
 });
