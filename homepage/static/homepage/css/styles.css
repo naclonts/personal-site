@@ -104,7 +104,7 @@
     text-align: center;
     margin: 0 50%;
     width: 100%;
-    min-height: 5em;
+    min-height: 6em;
     overflow-x: hidden;
     white-space: nowrap;
 }
@@ -114,7 +114,7 @@
 .bottomline li {
     position: absolute;
     left: 100vw;
-    transition: 0.5s left, 1.5s letter-spacing;
+    transition: 0.5s left, 1.5s letter-spacing, 1.5s color;
 }
 .bottomline li.active-line {
     left: 0vw;
@@ -126,7 +126,21 @@
 }
 .bottomline li.final-line {
     letter-spacing: 4px;
+    color: hsl(200, 67%, 83%);
 }
+
+@media screen and (max-width: 600px) {
+    .bottomline {
+        white-space: normal;
+    }
+    .bottomline li {
+        font-size: 2em;
+    }
+    .bottomline li.final-line {
+        letter-spacing: inherit;
+    }
+}
+
 
 
 /* GitHub image link */
@@ -182,7 +196,6 @@
 #canvas2:hover, #canvas1 {
     opacity: 1;
 }
-
 
 
 
