@@ -13,6 +13,9 @@ window.addEventListener('load', function(res) {
 
 
 function startAnimations() {
+    // Dim the navigation tab for now
+    document.getElementById('navigation-label').classList.add('unfocused');
+
     // Fade in "I"
     document.getElementById('line1').classList.add('visible');
 
@@ -58,10 +61,11 @@ function startAnimations() {
         }
     }
 
-    // Slide in github link kitty
+    // Slide in github link kitty and re-focus nav tab
     setTimeout(function () {
         document.getElementById('github-cat-block').classList.add('visible');
-    }, initialWordDelay + wordDisplayTime * (i+1));
+        document.getElementById('navigation-label').classList.remove('unfocused');
+    }, initialWordDelay + wordDisplayTime * (i));
 
 
 }

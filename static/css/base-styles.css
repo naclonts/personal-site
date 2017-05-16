@@ -43,15 +43,14 @@ a:hover {
     width: 50px;
     z-index: 3;
 
-    background-color: rgba(102, 102, 102, 0.9);
+    background-color: rgba(102, 102, 102, 0.8);
     color: hsl(200, 100%, 61%);
     text-align: center;
     font-size: 2.2em;
     border-color: hsla(0, 0%, 0%, 0);
     border-radius: 0px 10px 10px 0px;
 
-    transition: background-color 0.5s, color 0.5s;
-    transition: all 200ms ease-in;
+    transition: 0.5s all ease-in;
 }
 
 #navigation-label:hover, #navigation-label.active {
@@ -62,6 +61,11 @@ a:hover {
     border-right-style: solid;
     border-bottom-style: solid;
     border-left-style: none;
+}
+
+#navigation-label.unfocused {
+    background-color: rgba(102, 102, 102, 0.1);
+    color: hsla(200, 100%, 61%, 0.2);
 }
 
 
