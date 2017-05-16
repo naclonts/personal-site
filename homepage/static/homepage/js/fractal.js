@@ -1,4 +1,4 @@
-
+// Class to create & draw mandelbrot sets
 var Mandelbrot = function(w, h, ctx) {
     this.ctx = ctx;
     this.setSize(w, h);
@@ -9,16 +9,6 @@ var Mandelbrot = function(w, h, ctx) {
     this.drawOrder = [];
 };
 Mandelbrot.prototype.constructor = Mandelbrot;
-
-Mandelbrot.prototype.setSize = function(width, height) {
-    this.width = width;
-    this.height = height;
-    this.ctx.canvas.width = width;
-    this.ctx.canvas.height = height;
-    this.px = Math.floor(Math.sqrt(width * height)) / 35;
-    this.panX = width / 400; // works out to about 2 to 4 - centers 'brot
-    this.panY = 1.5;
-};
 
 Mandelbrot.prototype.valueAt = function(x, y) {
     var real = x;
@@ -44,6 +34,27 @@ Mandelbrot.prototype.drawAll = function() {
     }
 };
 
+Mandelbrot.prototype.drawSquare = function(x1, y1) {
+    var midX = x1/this.magnification - this.panX;
+    var midY = y1/this.magnification - this.panY;
+    // flip Mandelbrot to put wide end on top
+    var lumin = this.valueAt(-midY, midX);
+
+    // Set to dim luminosity rather than black
+    if (lumin < 5) {
+        lumin = 5;
+        var hue = this.baseHue;
+    } else {
+        var hue = this.baseHue + Math.random() * this.hueVariation;
+    }
+
+    var style = 'hsla(' + hue + ', 100%, ' + lumin + '%, 1)';
+    this.ctx.fillStyle = style;
+
+    // Add 1 to avoid border aliasing (?)
+    this.ctx.fillRect(x1, y1, this.px+1, this.px+1);
+}
+
 Mandelbrot.prototype.clear = function() {
     this.ctx.fillStyle = '#000';
     this.ctx.fillRect(0, 0, this.width, this.height);
@@ -64,25 +75,16 @@ Mandelbrot.prototype.randomCell = function() {
         window.setTimeout(this.randomCell.bind(this), this.animationInterval);
 };
 
-Mandelbrot.prototype.drawSquare = function(x1, y1) {
-    var lumin = this.valueAt(x1/this.magnification - this.panX,
-                             y1/this.magnification - this.panY);
-
-    // Set to dim luminosity rather than black
-    if (lumin < 5) {
-        lumin = 5;
-        var hue = this.baseHue;
-    } else {
-        var hue = this.baseHue + Math.random() * this.hueVariation;
-    }
-
-    var style = 'hsla(' + hue + ', 100%, ' + lumin + '%, 1)';
-    this.ctx.fillStyle = style;
-
-    // Add 1 to avoid border aliasing (?)
-    this.ctx.fillRect(x1, y1, this.px+1, this.px+1);
-}
-
+Mandelbrot.prototype.setSize = function(width, height) {
+    this.width = width;
+    this.height = height;
+    this.ctx.canvas.width = width;
+    this.ctx.canvas.height = height;
+    this.px = Math.floor(Math.sqrt(width * height)) / 50;
+    // this.magnification = Math.floor(Math.sqrt(width * height)) / 3;
+    this.panX = width / 520; // works out to about 2 to 4 - centers 'brot
+    this.panY = height / 800;
+};
 
 Mandelbrot.prototype.randomDrawOrder = function() {
     var points = [];
@@ -128,7 +130,6 @@ window.addEventListener('load', function() {
     ctx1.fillRect(0, 0, w, h);
 
     var m1 = new Mandelbrot(w, h, ctx1);
-//    m1.randomFillAll(200);
     m1.drawAll();
 
     var m2 = new Mandelbrot(w, h, ctx2);
@@ -146,15 +147,17 @@ window.addEventListener('load', function() {
 
     // Set up slider
     var s = document.getElementById('color-slider');
-    s.addEventListener('input', function() {
-        var hue = this.value * 1;
-        m1.baseHue = hue;
-        m1.drawAll();
-        m2.baseHue = hue - 40;
-        m2.drawAll();
-        document.getElementById('color-slider-container').style.backgroundColor =
-            'hsla(' + hue + ', 63%, 22%, 0.6)';
-    });
+    if (s) {
+        s.addEventListener('input', function() {
+            var hue = this.value * 1;
+            m1.baseHue = hue;
+            m1.drawAll();
+            m2.baseHue = hue - 40;
+            m2.drawAll();
+            document.getElementById('color-slider-container').style.backgroundColor =
+                'hsla(' + hue + ', 63%, 22%, 0.6)';
+        });
+    }
 
     // Set up scroll handling
     scrollHandlerSetup();
