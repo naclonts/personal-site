@@ -93,9 +93,16 @@
     opacity: 1;
 }
 
+.heart-wrapper {
+    height: 60%;
+    display: flex;
+    align-items: center;
+}
+
 #heart {
     fill: none;
-    height: 60%;
+    height: 25%;
+    transition: 0.5s height;
 }
 
 .bottomline {

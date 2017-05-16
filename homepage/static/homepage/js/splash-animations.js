@@ -19,16 +19,23 @@ function startAnimations() {
     // Draw SVG heart
     new Vivus('heart', { duration: 200, start: 'autostart' });
 
-    // Scroll in words below heart
+    // Scroll words in as heart size increases
     var initialWordDelay = 3000;
     var wordDisplayTime = 1500;
     var scrollWords = document.getElementsByClassName('scroll-word');
+    var heart = document.getElementById('heart');
+    var heartSizeIncrement = 1 / (scrollWords.length+1) * 100;
+    heart.style.height = heartSizeIncrement + '%';
 
     for (var i=0; i < scrollWords.length; i++) {
         var currentWord = scrollWords[i];
         setTimeout(
             function (word) {
                 word.classList.add('active-line');
+
+                var h = heart.style.height;
+                h = h.substring(0, h.length - 1);
+                heart.style.height = h*1 + heartSizeIncrement + '%';
             },
             initialWordDelay + wordDisplayTime * i,
             currentWord);
