@@ -36,7 +36,7 @@ a:hover {
 /*-------------------------*/
 #navigation-label {
     position: fixed;
-    top: 9em;
+    top: 34%;
     left: 0;
     height: 6em;
     line-height: 6em;
@@ -54,7 +54,7 @@ a:hover {
     transition: all 200ms ease-in;
 }
 
-#navigation-label:hover {
+#navigation-label:hover, #navigation-label.active {
     background-color: rgb(102, 102, 102);
     color: hsl(200, 100%, 92%);
     border: 1px solid #808080;
