@@ -8,7 +8,7 @@
         {% for post in posts %}
         <div class="blog-listing">
             <h3><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title | safe }}</a></h3>
-            <p>{{ post.text | safe }}</p>
+            <p>{{ post.short_description | safe }}</p>
             <p class="post-date">{{ post.created_date|date:"F d, Y" }}</p>
         </div>
         {% endfor %}

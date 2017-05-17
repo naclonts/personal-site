@@ -69,11 +69,11 @@
     width: 90%;
 }
 
-.blog-listing a {
+.foreground-container a {
     font-family: monospace;
     text-decoration: none;
+    font-size: 1.1em;
     color: hsl(97, 100%, 23%);
-    letter-spacing: 1px;
 }
 .blog-listing a:hover {
     text-decoration: underline;

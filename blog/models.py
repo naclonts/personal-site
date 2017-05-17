@@ -14,21 +14,32 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
-    
+
     class Meta:
         ordering = ['-created_date']
-    
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
-        
+
     def has_been_modified(self):
         return self.created_date != self.modified_date
-        
+
     def save(self, **kwargs):
         slug_str = '%s' % self.title
         unique_slugify(self, slug_str.lower())
         super(Post, self).save(**kwargs)
+
+    def short_description(self, max_length=250):
+            """Returns the beginning of the post's descriptions."""
+            if len(self.text) <= max_length:
+                return self.text
+            s = ''
+            d = self.text.split()
+            while len(s) < max_length and len(d) > 0:
+                s += d.pop(0) + ' '
+            s = s.strip() + '...'
+            return s
 
     @models.permalink
     def get_absolute_url(self):

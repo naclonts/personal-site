@@ -9,7 +9,6 @@ def index(request):
 
 def post_list(request):
     posts = Post.objects.all()
-    print(posts)
     context = { 'posts': posts }
     return render(request, 'blog/post_list.html', context=context)
 
