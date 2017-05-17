@@ -2,6 +2,18 @@
     background-color: hsl(97, 41%, 48%);
 }
 
+#content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.foreground-container {
+    color: #222;
+    max-width: 50em;
+}
+
 #navigation-label {
     position: fixed;
     top: 0em;
@@ -38,7 +50,7 @@
     bottom: 0;
     height: 2em;
     background-color: #666;
-    color: #eee;
+    color: #ddd;
     text-align: center;
 }
 
@@ -89,6 +101,7 @@
 }
 
 .post-title {
+    margin: 1.5em 0;
     color: hsl(97, 100%, 23%);
     text-align: center;
     transition: all 0.3s ease-in;
@@ -99,14 +112,18 @@
 
 .post-content {
     margin: 0 2%;
-}
-
-/* Allow posts to have whitespace with <pre> tag, but still wrap and keep font family */
-.post-content-pre {
-    font-family: inherit;
+    /* Allow whitespace */
     white-space: pre-wrap;       /* Since CSS 2.1 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* Code block formatting */
+.post-content pre {
+    padding: 2% 0 2% 6%;
+    background-color: #f1f9f1;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
 }

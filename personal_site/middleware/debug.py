@@ -1,6 +1,5 @@
 from django.views.debug import technical_500_response
 import sys
-from django.conf import settings
 
 class UserBasedExceptionMiddleware(object):
     def __init__(self, get_response):

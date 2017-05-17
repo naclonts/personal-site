@@ -17,12 +17,12 @@ body {
 
 a {
     text-decoration: underline;
+    color: #666;
     transition: 0.2s all;
 }
 
 a:hover {
-    letter-spacing: 0.2em;
-    font-size: 1.25em;
+    font-weight: bold;
 }
 
 #content {
