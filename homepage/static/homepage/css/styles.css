@@ -122,6 +122,7 @@
 .bottomline li {
     position: absolute;
     left: 100vw;
+    letter-spacing: 0;
     transition: 0.5s left, 1.5s letter-spacing, 1.5s color;
 }
 .bottomline li.active-line {
