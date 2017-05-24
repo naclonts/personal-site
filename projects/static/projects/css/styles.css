@@ -1,27 +1,34 @@
+#content {
+    background: #F3904F;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #3B4371, #F3904F);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
 #current-projects {
     position: relative;
-    margin: 0 auto;
-    min-height: 8em;
-    overflow: auto;
+    margin: 0;
     padding: 10px;
     word-wrap: break-word;
     text-align: center;
-    color: #fff;
-    text-shadow: /* black outline to text */
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
+    color: #f2f2f2;
+}
+
+.project {
+    margin: 14% auto;
+    text-align: center;
+}
+
+#current-project-title {
+    font-size: 6vw;
+    margin: 0 auto;
+    color: hsl(226, 25%, 90%);
 }
 
 #current-projects h3, #current-projects p {
-    margin: 0;
-    padding-left: 50px;
+    text-align: center;
+    margin: 4% auto;
     width: 70%;
-    float: left;
-}
-#current-projects p {
-    padding-top: 20px;
 }
 
 #current-projects a {
@@ -33,4 +40,22 @@
 
 #current-projects a:hover {
     letter-spacing: 3px;
+}
+
+.tags {
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    margin: 4% 0;
+    text-align: center;
+}
+.tags li {
+    vertical-align: middle;
+    padding: 0 10px;
+    list-style: none;
+    display: inline-block;
+    border-right: 1px solid #fff;
+}
+.tags li:last-child {
+    border-right: none;
 }
