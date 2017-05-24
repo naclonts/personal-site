@@ -124,7 +124,11 @@
 /* Code block formatting */
 .post-content pre {
     padding: 2% 0 2% 6%;
-    background-color: #f1f9f1;
+    background-color: hsl(120, 35%, 89%);
     border-top: 1px solid #666;
     border-bottom: 1px solid #666;
+    white-space: pre-wrap;
+}
+.post-content code {
+    background-color: hsl(120, 35%, 89%);
 }
