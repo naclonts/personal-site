@@ -62,3 +62,7 @@ background: linear-gradient(to top, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Fir
 .tags li:last-child {
     border-right: none;
 }
+
+.project-screenshot {
+    width: 90%;
+}
