@@ -15,7 +15,7 @@ background: linear-gradient(to top, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Fir
 }
 
 .project {
-    margin: 14% auto;
+    margin: 10% auto;
     text-align: center;
 }
 
@@ -44,10 +44,13 @@ background: linear-gradient(to top, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Fir
 
 .tags {
     display: flex;
+    flex-wrap: wrap;
     vertical-align: middle;
     justify-content: center;
     margin: 4% 0;
+    padding: 0 50px ;
     text-align: center;
+    font-family: monospace;
 }
 .tags li {
     vertical-align: middle;
