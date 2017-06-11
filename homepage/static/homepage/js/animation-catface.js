@@ -30,17 +30,6 @@ CatFace.prototype.draw = function() {
     this.ctx.stroke();
     this.ctx.fill();
 
-    // teeth
-    // for (var i=0; i < this.numTeeth; i++) {
-    //     var x = mouthLeft + ((mouthRight - mouthLeft) * ((i+1/2) / this.numTeeth));
-    //     console.log(x);
-    //     this.ctx.strokeStyle = 'red';
-    //     this.ctx.beginPath();
-    //     this.ctx.moveTo(x, mouthTop);
-    //     this.ctx.lineTo(x, mouthBottom);
-    //     this.ctx.stroke();
-    // }
-
     // left eye
     this.drawEye(w*0.42, h*0.4, w * 0.05);
     this.drawEye(w*0.58, h*0.4, w * 0.05);

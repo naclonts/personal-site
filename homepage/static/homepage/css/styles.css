@@ -5,10 +5,7 @@
     z-index: 1;
     width: 97%;
     height: 100%;
-    /*text-align: center;*/
 
-    /* big fonts for better visibility */
-    /*font-size: 1.25em;*/
     text-shadow: /* black outline to text */
         -1px -1px 0 #000,
         1px -1px 0 #000,
@@ -136,6 +133,36 @@
 .bottomline li.final-line {
     letter-spacing: 4px;
     color: hsl(200, 67%, 83%);
+}
+
+.blurb {
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
+.blurb p {
+    max-width: 275px;
+    font-size: 1.33em;
+    position: absolute;
+    margin: auto;
+    left: -100%;
+    top: 8em;
+    transition: 1.5s all;
+    color: hsl(0, 0%, 94%);
+    text-shadow: /* black outline to text */
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+#blurb-text a {
+    color: hsl(0, 0%, 90%);
+}
+#blurb-text.active {
+    left: 0;
+    right: 0;
 }
 
 @media screen and (max-width: 600px) {

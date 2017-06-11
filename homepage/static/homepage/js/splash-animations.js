@@ -23,6 +23,7 @@ function startAnimations() {
     new Vivus('heart', { duration: 200, start: 'autostart' });
 
     // Scroll words in as heart size increases
+    var word;
     var initialWordDelay = 3000;
     var wordDisplayTime = 1500;
     var scrollWords = document.getElementsByClassName('scroll-word');
@@ -61,11 +62,12 @@ function startAnimations() {
         }
     }
 
-    // Slide in github link kitty and re-focus nav tab
+    // Slide in github link kitty and text blurb, re-focus nav tab
     setTimeout(function () {
         document.getElementById('github-cat-block').classList.add('visible');
         document.getElementById('navigation-label').classList.remove('unfocused');
-    }, initialWordDelay + wordDisplayTime * (i));
+        document.getElementById('blurb-text').classList.add('active');
+    }, initialWordDelay + wordDisplayTime * (i+1));
 
 
 }
