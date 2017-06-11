@@ -62,12 +62,19 @@ function startAnimations() {
         }
     }
 
-    // Slide in github link kitty and text blurb, re-focus nav tab
+    // Slide in github link kitty and text blurb, and re-focus nav tab
     setTimeout(function () {
         document.getElementById('github-cat-block').classList.add('visible');
         document.getElementById('navigation-label').classList.remove('unfocused');
-        document.getElementById('blurb-text').classList.add('active');
+        blurbSlides();
     }, initialWordDelay + wordDisplayTime * (i+1));
+}
 
-
+// active the text blurbs!
+function blurbSlides() {
+    var parent = document.getElementById('blurb-text');
+    for (var i=0; i < parent.children.length; i++) {
+        var p = parent.children[i];
+        p.classList.add('active');
+    }
 }

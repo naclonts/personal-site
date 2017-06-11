@@ -141,13 +141,14 @@
     margin: auto;
     width: 100%;
 }
-.blurb p {
-    max-width: 275px;
-    font-size: 1.33em;
+#blurb-text {
+    overflow: hidden;
     position: absolute;
-    margin: auto;
-    left: -100%;
     top: 8em;
+    height: 8em;
+    width: 100%;
+    font-size: 1.33em;
+    margin: auto;
     transition: 1.5s all;
     color: hsl(0, 0%, 94%);
     text-shadow: /* black outline to text */
@@ -164,6 +165,30 @@
     left: 0;
     right: 0;
 }
+
+.slide-right, .slide-left {
+    position: absolute;
+    transition: 1.0s all;
+}
+.slide-right {
+    left: -100%;
+}
+.slide-left {
+    left: 110%;
+}
+
+.slide-right.active, .slide-left.active {
+    left: 0;
+    right: 0;
+}
+
+#p1 { top: 0em; }
+#p2 { top: 1em; }
+#p3 { top: 2em; }
+#p4 { top: 3em; }
+#p5 { top: 4em; }
+#p6 { top: 5em; }
+
 
 @media screen and (max-width: 600px) {
     .bottomline {
