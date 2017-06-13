@@ -50,7 +50,7 @@ function canvasSupport() {
 
 function getWindowSize() {
     var w = 0, h = 0;
-    
+
     if (typeof(window.innerWidth) == 'number') {
         // Non-IE
         w = Math.min(window.innerWidth, document.body.clientWidth);
@@ -65,7 +65,7 @@ function getWindowSize() {
         w = document.body.clientWidth;
         h = document.body.clientHeight;
     }
-    
+
     return { width: w,
              height: h };
 }
@@ -79,7 +79,7 @@ function scrollHandlerSetup() {
             lastScrollPosition = window.pageYOffset;
         else // IE
             lastScrollPosition = document.documentElement.scrollTop;
-        
+
         var canvas = document.getElementById('background-canvas');
         canvas.style.top = lastScrollPosition + 'px';
     });

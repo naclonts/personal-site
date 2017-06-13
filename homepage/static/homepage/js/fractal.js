@@ -213,6 +213,43 @@ function drawBioFractals() {
 
 
 
+function drawBlogFractals() {
+    window.addEventListener('load', function() {
+        var canvas1 = document.getElementById('canvas1');
+        var dim = getWindowSize();
+        var w = dim.width;
+        var h = dim.height;
+
+        canvas1.width = w;
+        canvas1.height = h;
+        var ctx1 = canvas1.getContext('2d');
+
+        ctx1.fillStyle = 'black';
+        ctx1.fillRect(0, 0, w, h);
+
+        var m1 = new Mandelbrot(w, h, ctx1);
+        m1.baseHue = 97;
+        m1.px = w / 25;
+        m1.pixelizationFunction = function(w, h) {
+            return w / 25;
+        };
+        m1.luminationFunction = function(lumin) {
+            return lumin * 1.5;
+        };
+        m1.drawAll();
+
+        // Redraw on resize
+        window.addEventListener('resize', function() {
+            var dim = getWindowSize();
+            m1.setSize(dim.width, dim.height);
+            m1.drawAll();
+        });
+
+        // Set up scroll handling
+        scrollHandlerSetup();
+    }, false);
+}
+
 
 var lastScrollPosition = 0;
 

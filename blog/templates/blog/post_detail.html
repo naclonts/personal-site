@@ -8,18 +8,18 @@
             <h1 class="post-title">{{ post.title|safe }}</h1>
 
             <!-- Wrap content to allow whitespace  -->
-            <!-- <div class="post-content-pre"> -->
-                <div class="post-content">{{ post.text|safe }}</p>
-            <!-- </div> -->
-            <p class="post-date">
-                Created {{ post.created_date|date:"F d, Y" }}
-            </p>
+            <div class="post-content">{{ post.text|safe }}</p>
+                <p class="post-date">
+                    Created {{ post.created_date|date:"F d, Y" }}
+                </p>
+            </div>
         </div>
     </div>
-    <canvas id="background-canvas"></canvas>
+    <canvas id="canvas1" class="fractal-canvas active"></canvas>
 </body>
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static "blog/js/blog-background.js" %}" type="text/javascript" ></script>
+<script type="text/javascript" src="{% static "homepage/js/fractal.js" %}"></script>
+<script>drawBlogFractals();</script>
 {% endblock %}

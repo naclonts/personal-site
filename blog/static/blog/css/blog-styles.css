@@ -10,8 +10,23 @@
 }
 
 .foreground-container {
+    margin: 2.2em auto;
+    background-color: #fff;
+    height: 100%;
+    width: 98%;
+    padding-bottom: 2em;
+    z-index: 5;
     color: #222;
     max-width: 50em;
+}
+
+#canvas1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
 }
 
 #navigation-label {
@@ -27,23 +42,6 @@
     border-bottom: 1px solid #ddd;
 }
 
-#background-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-}
-
-.foreground-container {
-    margin: 2.2em auto;
-    background-color: #fff;
-    height: 100%;
-    width: 98%;
-    padding-bottom: 2em;
-    z-index: 5;
-}
 
 .blog-footer {
     position: absolute;
@@ -57,7 +55,7 @@
 .blog-title {
     padding-top: 10px;
     text-align: center;
-    color: hsl(277, 77%, 18%);
+    color: hsl(39, 76%, 18%);
     transition: all 1s;
 }
 .blog-title:hover {
@@ -127,7 +125,8 @@
     background-color: hsl(120, 35%, 89%);
     border-top: 1px solid #666;
     border-bottom: 1px solid #666;
-    white-space: pre-wrap;
+    white-space: no-wrap;
+    overflow-x: scroll;
 }
 .post-content code {
     background-color: hsl(120, 35%, 89%);
