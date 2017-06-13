@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "homepage/css/styles.css" %}" type="text/css" />
+<link rel="stylesheet" href="{% static "homepage/css/bio-styles.css" %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<body>
+    <div id="foreground-container">
+        <div id="blurb">
+            <p>
+                I'm a developer with a love of learning new technologies, both in front-end user interfaces and back-end server-side programming. I like the occasional ping-pong and percussion, too.
+            </p>
+            <p>
+                I started writing code when I was 8 years old, with a book of Smalltalk from my dad.  <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Seeing that turtle fly across the screen</a>, controlled by abstract patterns of numbers and text, sparked something in me. The infinite possibilities stretched out before me like a computational buffet – and the dishes haven't ran out yet.
+            </p>
+        </div>
+    </div>
+
+    <canvas id="canvas2" class="fractal-canvas active" ></canvas>
+    <canvas id="canvas1" class="fractal-canvas active" ></canvas>
+</body>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static "homepage/js/fractal.js" %}"></script>
+<script>drawBioFractals();</script>
+{% endblock %}

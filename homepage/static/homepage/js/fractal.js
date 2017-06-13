@@ -1,12 +1,20 @@
 // Class to create & draw mandelbrot sets
 var Mandelbrot = function(w, h, ctx) {
     this.ctx = ctx;
-    this.setSize(w, h);
     this.magnification = 250;
     this.limit = 10;
     this.baseHue = 200;
     this.hueVariation = 30;
     this.drawOrder = [];
+    this.width = w;
+    this.height = h;
+
+    this.pixelizationFunction = function(width, height) {
+        return Math.floor(Math.sqrt(width * height)) / 50;
+    };
+    this.luminationFunction = function(lumin) {
+        return lumin;
+    };
 };
 Mandelbrot.prototype.constructor = Mandelbrot;
 
@@ -26,6 +34,7 @@ Mandelbrot.prototype.valueAt = function(x, y) {
 
 // draw the full set
 Mandelbrot.prototype.drawAll = function() {
+    this.setSize(this.width, this.height);
     this.clear();
     for (var x=0; x < this.width; x+=this.px) {
         for (var y=0; y < this.height; y+=this.px) {
@@ -39,10 +48,11 @@ Mandelbrot.prototype.drawSquare = function(x1, y1) {
     var midY = y1/this.magnification - this.panY;
     // flip Mandelbrot to put wide end on top
     var lumin = this.valueAt(-midY, midX);
+    lumin = this.luminationFunction(lumin);
 
     // Set to dim luminosity rather than black
-    if (lumin < 5) {
-        lumin = 5;
+    if (lumin < 10) {
+        lumin = 8;
         var hue = this.baseHue;
     } else {
         var hue = this.baseHue + Math.random() * this.hueVariation;
@@ -80,7 +90,7 @@ Mandelbrot.prototype.setSize = function(width, height) {
     this.height = height;
     this.ctx.canvas.width = width;
     this.ctx.canvas.height = height;
-    this.px = Math.floor(Math.sqrt(width * height)) / 50;
+    this.px = this.pixelizationFunction(width, height);
     // this.magnification = Math.floor(Math.sqrt(width * height)) / 3;
     this.panX = width / 520; // works out to about 2 to 4 - centers 'brot
     this.panY = height / 800;
@@ -111,58 +121,97 @@ Mandelbrot.prototype.shuffle = function(arrayToShuffle) {
     return a;
 }
 
-
-window.addEventListener('load', function() {
-    var canvas1 = document.getElementById('canvas1');
-    var canvas2 = document.getElementById('canvas2');
-    var dim = getWindowSize();
-    var w = dim.width;
-    var h = dim.height;
-
-    canvas1.width = w;
-    canvas1.height = h;
-    canvas2.width = w;
-    canvas2.height = h;
-    var ctx1 = canvas1.getContext('2d');
-    var ctx2 = canvas2.getContext('2d');
-
-    ctx1.fillStyle = 'black';
-    ctx1.fillRect(0, 0, w, h);
-
-    var m1 = new Mandelbrot(w, h, ctx1);
-    m1.drawAll();
-
-    var m2 = new Mandelbrot(w, h, ctx2);
-    m2.baseHue = m1.baseHue - 40;
-    m2.drawAll();
-
-    // Redraw on resize
-    window.addEventListener('resize', function() {
+function drawHomepageFractals() {
+    window.addEventListener('load', function() {
+        var canvas1 = document.getElementById('canvas1');
+        var canvas2 = document.getElementById('canvas2');
         var dim = getWindowSize();
-        m1.setSize(dim.width, dim.height);
+        var w = dim.width;
+        var h = dim.height;
+
+        canvas1.width = w;
+        canvas1.height = h;
+        canvas2.width = w;
+        canvas2.height = h;
+        var ctx1 = canvas1.getContext('2d');
+        var ctx2 = canvas2.getContext('2d');
+
+        ctx1.fillStyle = 'black';
+        ctx1.fillRect(0, 0, w, h);
+
+        var m1 = new Mandelbrot(w, h, ctx1);
         m1.drawAll();
-        m2.setSize(dim.width, dim.height);
+
+        var m2 = new Mandelbrot(w, h, ctx2);
+        m2.baseHue = m1.baseHue - 40;
         m2.drawAll();
-    });
 
-    // Set up slider
-    var s = document.getElementById('color-slider');
-    if (s) {
-        s.addEventListener('input', function() {
-            var hue = this.value * 1;
-            m1.baseHue = hue;
+        // Redraw on resize
+        window.addEventListener('resize', function() {
+            var dim = getWindowSize();
+            m1.setSize(dim.width, dim.height);
             m1.drawAll();
-            m2.baseHue = hue - 40;
+            m2.setSize(dim.width, dim.height);
             m2.drawAll();
-            document.getElementById('color-slider-container').style.backgroundColor =
-                'hsla(' + hue + ', 63%, 22%, 0.6)';
         });
-    }
 
-    // Set up scroll handling
-    scrollHandlerSetup();
+        // Set up slider
+        // var s = document.getElementById('color-slider');
+        // if (s) {
+        //     s.addEventListener('input', function() {
+        //         var hue = this.value * 1;
+        //         m1.baseHue = hue;
+        //         m1.drawAll();
+        //         m2.baseHue = hue - 40;
+        //         m2.drawAll();
+        //         document.getElementById('color-slider-container').style.backgroundColor =
+        //             'hsla(' + hue + ', 63%, 22%, 0.6)';
+        //     });
+        // }
 
-}, false);
+        // Set up scroll handling
+        scrollHandlerSetup();
+    }, false);
+}
+
+
+function drawBioFractals() {
+    window.addEventListener('load', function() {
+        var canvas1 = document.getElementById('canvas1');
+        var dim = getWindowSize();
+        var w = dim.width;
+        var h = dim.height;
+
+        canvas1.width = w;
+        canvas1.height = h;
+        var ctx1 = canvas1.getContext('2d');
+
+        ctx1.fillStyle = 'black';
+        ctx1.fillRect(0, 0, w, h);
+
+        var m1 = new Mandelbrot(w, h, ctx1);
+        m1.px = w / 3;
+        m1.pixelizationFunction = function(w, h) {
+            return w / 3;
+        };
+        m1.luminationFunction = function(lumin) {
+            return Math.sqrt(lumin) * 4;
+        };
+        m1.drawAll();
+
+        // Redraw on resize
+        window.addEventListener('resize', function() {
+            var dim = getWindowSize();
+            m1.setSize(dim.width, dim.height);
+            m1.drawAll();
+        });
+
+        // Set up scroll handling
+        scrollHandlerSetup();
+    }, false);
+}
+
+
 
 
 var lastScrollPosition = 0;
