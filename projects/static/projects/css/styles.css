@@ -15,25 +15,29 @@ background: linear-gradient(to top, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Fir
 }
 
 .project {
-    margin: 10% auto;
+    margin: 5% auto;
     text-align: center;
 }
 
 #current-project-title {
-    font-size: 6vw;
+    font-size: 2em;
+    font-family: monospace;
     margin: 0 auto;
-    color: hsl(226, 25%, 90%);
+    color: hsl(200, 25%, 95%);
 }
 
 #current-projects h3, #current-projects p {
     text-align: center;
-    margin: 4% auto;
+    margin: 2% auto;
     width: 70%;
+}
+#current-projects h3 {
+    font-size: 1.5em;
 }
 
 #current-projects a {
     letter-spacing: 1px;
-    color: #fff;;
+    color: #f2f2f2;
     text-decoration: none;
     font-weight: bold;
 }
@@ -47,7 +51,7 @@ background: linear-gradient(to top, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Fir
     flex-wrap: wrap;
     vertical-align: middle;
     justify-content: center;
-    margin: 4% 0;
+    margin: 2% 0;
     padding: 0 50px ;
     text-align: center;
     font-family: monospace;
@@ -65,4 +69,5 @@ background: linear-gradient(to top, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Fir
 
 .project-screenshot {
     width: 90%;
+    max-width: 600px;
 }
