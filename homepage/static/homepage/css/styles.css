@@ -70,12 +70,17 @@ html, body {
     padding: 1em;
 }
 
+/* Section background colors */
 .section.second-slide {
     background-color: #FFF;
 }
 
-.section.projects-slide {
+.section.about-slide {
     background-color: #f5f5f5;
+}
+
+.section.projects-slide {
+    background-color: #FFF;
 }
 
 
@@ -181,6 +186,53 @@ html, body {
 .section.projects-slide .tags li:last-child {
     border-right: none;
 }
+
+
+/******************/
+/* Contact form   */
+/******************/
+.section.contact-slide {
+    /*background-color: #d7d7d7;*/
+    background-color: #525e6c;
+    color: #FFF;
+}
+
+.section.contact-slide h2 {
+    color: hsl(104, 100%, 82%);
+}
+
+.contact-form {
+    margin-top: 4%;
+}
+
+.contact-form label {
+    display: block;
+}
+
+.contact-form button {
+    width: 10em;
+    height: 3em;
+    line-height: 3em;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: hsl(200, 38%, 45%);
+    text-shadow: -1px 1px hsl(200, 38%, 35%);
+    border: none;
+}
+
+.contact-form button:hover,
+.contact-form button.hover {
+    background-color: hsl(200, 49%, 35%);
+    text-shadow: -1px 1px hsl(200, 38%, 25%);
+}
+
+.contact-form button:active,
+.contact-form button.active {
+    background-color: hsl(200, 49%, 25%);
+    text-shadow: -1px 1px hsl(200, 38%, 15%);
+}
+
 
 
 /********************/

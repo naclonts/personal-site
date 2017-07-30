@@ -46,6 +46,18 @@
             </p>
         </div>
 
+        <div class="section about-slide">
+            <h2 class="slide-title">Technologies I've worked with</h2>
+            <h3>Front-end</h3>
+            <p>CSS, JavaScript, jQuery, AngularJS</p>
+            <br/>
+            <h3>Back-end</h3>
+            <p>Django, APIs, MySQL, NodeJS</p>
+            <br/>
+            <h3>Other tools</h3>
+            <p>Git, Babel, webpack, NPM, Apache, Ubuntu</p>
+        </div>
+
         <div id="projects" class="section projects-slide">
             <h2 class="slide-title">Recent projects</h2>
             <div class="project">
@@ -81,6 +93,19 @@
                     <img class="project-screenshot" src="{{ MEDIA_URL }}podcast-screenshot.png" />
                 </a>
             </div>
+        </div>
+
+        <div id="contact" class="section contact-slide">
+            <h2>Let's talk</h2>
+            <p>
+                Want to talk about a project? Shoot me a message in the text box below and I'll get back to you soon!
+            </p>
+
+            <form class="contact-form" role="form" action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Send</button>
+            </form>
         </div>
     </div>
 
