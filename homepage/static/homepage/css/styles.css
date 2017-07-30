@@ -17,10 +17,14 @@ html, body {
     color: hsl(212, 13%, 37%);
 }
 
-.section h2 {
+.section .slide-title {
     color: hsla(107, 45%, 42%, 0.9);
     margin: auto;
     margin-bottom: 4%;
+}
+
+.section .slide-title.center {
+    text-align: center;
 }
 
 .section li {
@@ -122,10 +126,6 @@ html, body {
 /********************/
 /* Projects section */
 /********************/
-.section.projects-slide .slide-title {
-    text-align: center;
-}
-
 .section.projects-slide .project {
     margin-bottom: 4%;
     width: 100%;
@@ -192,8 +192,7 @@ html, body {
 /* Contact form   */
 /******************/
 .section.contact-slide {
-    /*background-color: #d7d7d7;*/
-    background-color: #525e6c;
+    background-color: hsl(212, 13%, 37%);
     color: #FFF;
 }
 
