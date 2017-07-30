@@ -1,430 +1,100 @@
-/* Container for everything except canvasses */
-#foreground-container {
-    padding: 0 1%;
-    position: absolute;
-    z-index: 1;
-    width: 97%;
+html {
+    font-family: sans-serif;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
     height: 100%;
-
-    text-shadow: /* black outline to text */
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
 }
 
 
+.section {
+    padding: 4% 4%;
+    font-size: 1.3em;
+    min-height: 75vh;
+    box-sizing: border-box;
+    color: hsl(212, 13%, 37%);
+}
 
-/* Shaded boxes */
-#intro {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    width: 100%;
-    text-align: center;
+.section h2 {
+    color: hsla(107, 45%, 42%, 0.9);
+    margin: auto;
 }
-#intro p {
-    font-size: 1.5em;
-    text-align: center;
-    vertical-align: middle;
-    max-width: 40em;
-    margin: 60px auto;
-    color: hsl(0, 0%, 94%);
+
+.section li {
+    margin: 2% 0%;
 }
-#intro a {
-    color: #ddd;
+
+/* Simulate link underline with background-image line */
+/* Allows dynamic movement of underline on hover */
+.section a {
+    color: hsl(38, 13%, 36%);
     text-decoration: none;
-    font-weight: bold;
-}
-#intro a:hover {
-    color: #fff;
-}
-
-/* Text */
-#intro h1, #intro h2 {
-    padding-top: 1%;
-    color: hsl(0, 0%, 94%);
-    top: 1em;
-    text-align: center;
-}
-#intro h1 {
-    font-size: 2em;
-    margin-bottom: 0;
-}
-#intro h2 {
-    padding-top: 0;
-    margin-top: 0;
+    background-position: 0 1em;
+    background-size: 2px 2px;
+    background-image: linear-gradient(#84765a 50%, transparent 0);
+    background-repeat: repeat-x;
+    transition: all .1s ease-in-out 0s;
 }
 
+.section a:hover {
+    background-position: 0 .97em;
+}
 
-/* intro animations */
-.intro-animation {
-    display: flex;
-    flex-direction: column;
+.section.first-slide {
+    background: url(../media/van_gogh-green_wheat_fields.jpg) no-repeat center
+                center fixed;
+    background-size: cover;
     align-items: center;
-    height: 100%;
+
 }
 
-#line1 {
+.section.first-slide .text-overlay {
+    max-width: 600px;
+    background-color: hsla(0, 0%, 100%, 0.8);
+    border-radius: 5%;
+    height: 100%;
+    margin-left: auto;
+    padding: 1em;
+}
+
+.section.second-slide {
+    background-color: #FFF;
+}
+
+.section.projects-slide {
+    background-color: #f5f5f5;
+}
+
+.section blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+.section blockquote:before {
+    color: #ccc;
+    content: open-quote;
     font-size: 4em;
-    font-family: monospace;
-    color: white;
-}
-.bottomline li {
-    font-size: 3em;
-    color: white;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
 }
 
-#line1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 15%;
-    margin: 0;
-
-    opacity: 0;
-    transition: 1.0s opacity;
-}
-#line1.visible {
-    opacity: 1;
+.section blockquote p {
+    margin-bottom: 0.33em;
+    display: inline;
 }
 
-.heart-wrapper {
-    height: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#heart {
-    fill: none;
-    height: 25%;
-    transition: 0.5s height;
-}
-
-.bottomline {
+.section .quote-attribution {
     display: block;
-    position: relative;
-    text-align: center;
-    margin: 0 50%;
-    width: 100%;
-    min-height: 6em;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.bottomline ol {
-    list-style: none;
-}
-.bottomline li {
-    position: absolute;
-    left: 100vw;
-    letter-spacing: 0;
-    transition: 0.5s left, 1.5s letter-spacing, 1.5s color;
-}
-.bottomline li.active-line {
-    left: 0vw;
-    width: 100%;
-}
-.bottomline li.finished-line {
-    left: -100vw;
-    width: 100%;
-}
-.bottomline li.final-line {
-    letter-spacing: 4px;
-    color: hsl(200, 67%, 83%);
+    margin-top: .5em;
+    margin-left: .5em;
 }
 
-.blurb {
-    text-align: center;
-    align-items: center;
-    margin: auto;
-    width: 100%;
-}
-#blurb-text {
-    overflow: hidden;
-    position: absolute;
-    top: 8em;
-    height: 8em;
-    width: 100%;
-    font-size: 1.33em;
-    margin: auto;
-    transition: 1.5s all;
-    color: hsl(0, 0%, 94%);
-    text-shadow: /* black outline to text */
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-}
-
-#blurb-text a {
-    color: hsl(0, 0%, 90%);
-}
-#blurb-text.active {
-    left: 0;
-    right: 0;
-}
-
-.slide-right, .slide-left {
-    position: absolute;
-    transition: 1.0s all;
-}
-.slide-right {
-    left: -100%;
-}
-.slide-left {
-    left: 110%;
-}
-
-.slide-right.active, .slide-left.active {
-    left: 0;
-    right: 0;
-}
-
-#p1 { top: 0em; }
-#p2 { top: 1em; }
-#p3 { top: 2em; }
-#p4 { top: 3em; }
-#p5 { top: 4em; }
-#p6 { top: 5em; }
-
-
-@media screen and (max-width: 600px) {
-    .bottomline {
-        white-space: normal;
-    }
-    .bottomline li {
-        font-size: 2em;
-    }
-    .bottomline li.final-line {
-        letter-spacing: inherit;
-    }
-}
-
-
-
-/* GitHub image link */
-/* Start by rendering off-screen for slide-in later */
-#github-cat-block {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    top: -120px;
-    right: 0;
-    margin: auto;
-    padding: 0;
-    border: 4px solid 'white';
-    transition: 0.5s top ease-in;
-}
-#github-cat-block.visible {
-    top: 5px;
-}
-.github-link {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    padding: 0;
-    object-fit: cover;
-    image-rendering: crisp-edges;
-}
-/* Canvas to draw cat */
-#catface {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    padding: 0;
-    object-fit: cover;
-    transition: 1s all ease-in;
-}
-#catface:hover, #catface:focus, #catface:active {
-    opacity: 1;
-}
-
-@media screen and (max-width: 600px) {
-    #github-cat-block {
-        height: 80px;
-        width: 80px;
-    }
-}
-
-
-/* Canvasses for fractals */
-.fractal-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    max-width: 100%;
-    transition: opacity 2s;
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-}
-.fractal-canvas.active {
-    opacity: 1;
-}
-
-
-
-/*-------------------*/
-/* Slider formatting */
-/*-------------------*/
-input[type=range] {
-    -webkit-appearance: none;
-    width: 100%;
-    background: transparent;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-}
-
-input[type=range]::-ms-track {
-    width: 100%;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-}
-
-input[type=range] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
-}
-
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
-input[type=range]:focus {
-  outline: none;
-}
-
-input[type=range]::-ms-track {
-  width: 100%;
-  cursor: pointer;
-
-  /* Hides the slider so custom styles can be added */
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-/* Special styling for WebKit/Blink */
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 30px;
-  width: 16px;
-  border-radius: 3px;
-  background: #dddddd;
-  cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-}
-
-/* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 30px;
-  width: 16px;
-  border-radius: 3px;
-  background: #dddddd;
-  cursor: pointer;
-}
-
-/* All the same stuff for IE */
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 30px;
-  width: 16px;
-  border-radius: 3px;
-  background: #dddddd;
-  cursor: pointer;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #c3c3c3;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgba(134, 134, 134, 0.26);
-}
-
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #c3c3c3;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-
-input[type=range]:focus::-moz-range-track {
-background: rgba(134, 134, 134, 0.26);
-}
-
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: #c3c3c3;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: rgba(134, 134, 134, 0.26);
-}
-input[type=range]::-ms-fill-upper {
-  background: #c3c3c3;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: rgba(134, 134, 134, 0.26);
-}
-
-
-/* Specific slider positioning */
-#color-slider {
-    position: fixed;
-    bottom: 20px;
-    left: 10%;
-    right: 10%;
-    width: 70%;
-    margin: auto;
-}
-
-#color-slider-container {
-    position: fixed;
-    bottom: 0px;
-    left: 10%;
-    right: 10%;
-    width: 75%;
-    height: 50px;
-    margin: auto;
-    background-color: hsla(200, 80%, 22%, 0.6);
-    border: 1px solid #222;
+.section .quote-attribution::before {
+    content: '— ';
 }

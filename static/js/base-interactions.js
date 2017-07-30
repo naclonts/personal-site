@@ -13,4 +13,4 @@ function setupMenuUI() {
 }
 
 
-window.addEventListener('load', setupMenuUI);
+// window.addEventListener('load', setupMenuUI);
