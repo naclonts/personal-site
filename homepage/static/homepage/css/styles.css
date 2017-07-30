@@ -20,10 +20,16 @@ html, body {
 .section h2 {
     color: hsla(107, 45%, 42%, 0.9);
     margin: auto;
+    margin-bottom: 4%;
 }
 
 .section li {
     margin: 2% 0%;
+}
+
+.section p {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 
 /* Simulate link underline with background-image line */
@@ -38,8 +44,13 @@ html, body {
     transition: all .1s ease-in-out 0s;
 }
 
-.section a:hover {
+.section a:hover,
+.section h3 a:hover {
     background-position: 0 .97em;
+}
+
+.section .img-link {
+    background: none;
 }
 
 .section.first-slide {
@@ -67,10 +78,14 @@ html, body {
     background-color: #f5f5f5;
 }
 
+
+/********************/
+/* Quotes           */
+/********************/
 .section blockquote {
     background: #f9f9f9;
     border-left: 10px solid #ccc;
-    margin: 1.5em 10px;
+    margin: 1.5em 0;
     padding: 0.5em 10px;
     quotes: "\201C""\201D""\2018""\2019";
 }
@@ -97,4 +112,86 @@ html, body {
 
 .section .quote-attribution::before {
     content: '— ';
+}
+
+/********************/
+/* Projects section */
+/********************/
+.section.projects-slide .slide-title {
+    text-align: center;
+}
+
+.section.projects-slide .project {
+    margin-bottom: 4%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Align odd projects to the left */
+.section.projects-slide div:nth-of-type(odd) {
+    flex-direction: row-reverse;
+}
+
+.section.projects-slide .project-description {
+    width: 40%;
+    margin: 0 1em;
+    text-align: center;
+}
+
+.section.projects-slide .code-link {
+    color: #aaa;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-decoration: none;
+    background: none;
+    transition: .15s linear color;
+}
+.section.projects-slide .code-link:hover {
+    color: hsl(182, 100%, 46%);
+}
+
+.section.projects-slide img {
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid #ddd;
+    transition: .2s ease-in border;
+}
+.section.projects-slide img:hover {
+    border: 2px solid #aaa;
+}
+
+.section.projects-slide .tags {
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align: middle;
+    justify-content: center;
+    margin: 2% 0;
+    padding: 0 50px ;
+    text-align: center;
+    font-family: monospace;
+}
+.section.projects-slide .tags li {
+    vertical-align: middle;
+    padding: 0 10px;
+    list-style: none;
+    display: inline-block;
+    border-right: 1px solid #aaa;
+}
+.section.projects-slide .tags li:last-child {
+    border-right: none;
+}
+
+
+/********************/
+/* Responsiveness   */
+/********************/
+
+@media screen and (max-width: 700px) {
+    .section.projects-slide .project {
+        display: block;
+    }
+    .section.projects-slide .project-description {
+        width: 100%;
+    }
 }
