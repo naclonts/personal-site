@@ -78,7 +78,7 @@
                     <img class="project-screenshot" src="{{ MEDIA_URL }}hydronote-screenshot.png" />
                 </a>
             </div>
-            
+
             <div class="project">
                 <div class="project-description">
                     <h3><a href="https://nathanclonts.com/podcast/">Podcast site</a></h3>
@@ -102,7 +102,7 @@
                 Want to talk about a project? Shoot me a message in the text box below and I'll get back to you soon!
             </p>
 
-            <form class="contact-form" role="form" action="" method="post">
+            <form id="contact-form" class="contact-form" role="form" action="send_email" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Send</button>
@@ -114,4 +114,5 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="{% static "homepage/js/forms.js" %}" type="text/javascript"></script>
 {% endblock %}

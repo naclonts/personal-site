@@ -8,7 +8,16 @@ from .forms import ContactForm
 from personal_site import secret_settings
 
 def index(request):
-    """Handle form submission, or just return the landing page template."""
+    """Return the landing page template."""
+    # Include email contact form
+    form = ContactForm()
+    return render(request, 'homepage/index.html', {'form': form})
+
+def bio(request):
+    return render(request, 'homepage/bio.html')
+
+
+def send_email(request):
     # Send email on form POST requests
     if request.method == 'POST':
         form = ContactForm(data=request.POST)
@@ -24,7 +33,7 @@ def index(request):
                 'contact_email': contact_email,
                 'form_content': form_content,
             }
-            # import pdb; pdb.set_trace()
+
             content = template.render(context)
 
             email = EmailMessage(
@@ -34,13 +43,6 @@ def index(request):
                 [secret_settings.PERSONAL_EMAIL],
                 headers = {'Reply-To': contact_email},
             )
+            import pdb; pdb.set_trace()
             email.send()
             return redirect('/')
-    # Not a form submission - return the template
-    else:
-        form = ContactForm()
-
-    return render(request, 'homepage/index.html', {'form': form})
-
-def bio(request):
-    return render(request, 'homepage/bio.html')
