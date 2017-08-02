@@ -17,6 +17,11 @@ html, body {
     color: hsl(212, 13%, 37%);
 }
 
+.section .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .section .slide-title {
     color: hsla(107, 45%, 42%, 0.9);
     margin: auto;
@@ -53,6 +58,12 @@ html, body {
     background-position: 0 .97em;
 }
 
+.section em {
+    color: hsla(107, 45%, 42%, 1);
+    font-weight: bold;
+    font-style: normal;
+}
+
 .section .img-link {
     background: none;
 }
@@ -62,7 +73,6 @@ html, body {
                 center fixed;
     background-size: cover;
     align-items: center;
-
 }
 
 .section.first-slide .text-overlay {
@@ -70,7 +80,7 @@ html, body {
     background-color: hsla(0, 0%, 100%, 0.8);
     border-radius: 5%;
     height: 100%;
-    margin-left: auto;
+    margin: 0 auto;
     padding: 1em;
 }
 
@@ -92,6 +102,7 @@ html, body {
 /* Quotes           */
 /********************/
 .section blockquote {
+    position: relative;
     background: #f9f9f9;
     border-left: 10px solid #ccc;
     margin: 1.5em 0;
@@ -108,14 +119,25 @@ html, body {
     vertical-align: -0.4em;
 }
 
+.section blockquote:after {
+    color: #ccc;
+    position: absolute;
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    right: 0;
+    bottom: 0.5em;
+}
+
 .section blockquote p {
     margin-bottom: 0.33em;
+    margin-right: 2em;
     display: inline;
 }
 
 .section .quote-attribution {
     display: block;
-    margin-top: .5em;
+    margin-top: 1.5em;
     margin-left: .5em;
 }
 

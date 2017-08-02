@@ -43,6 +43,14 @@ def send_email(request):
                 [secret_settings.PERSONAL_EMAIL],
                 headers = {'Reply-To': contact_email},
             )
-            import pdb; pdb.set_trace()
             email.send()
-            return redirect('/')
+
+            message = 'Email successfully sent.'
+
+        else:
+            message = 'There was an issue with the form submission. Please try again.'
+
+    else:
+        message = 'Only POST requests are allowed for this link.'
+
+    return HttpResponse(message)

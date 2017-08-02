@@ -9,104 +9,119 @@
 <body>
     <div class="entry-content">
         <div class="section first-slide">
-            <div class="text-overlay">
-                <h2 class="slide-title">Hello, my name is Nathan Clonts.</h2>
-                <p>
-                    I'm a person with experience in the full stack of web development.
-                </p>
-                <p>
-                    Take a look at some of <a href="#projects">my projects</a> below, or
-                    <a href="#contact">contact me</a> if you'd like to work on something!
-                </p>
+            <div class="content-wrapper">
+                <div class="text-overlay">
+                    <h2 class="slide-title">Hello, my name is Nathan Clonts.</h2>
+                    <p>
+                        I'm a person with experience in the full stack of web development.
+                    </p>
+                    <p>
+                        Take a look at some of <a href="#projects">my projects</a> below, or
+                        <a href="#contact">contact me</a> if you'd like to work on something!
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="section second-slide">
-            <h2 class="slide-title">Modern websites</h2>
-            <blockquote>
-                <p>
-                    The endless connections which all things have to each other is only
-    hinted at here, yet the hint is enough.
-                </p>
-                <small class="quote-attribution">Douglas Hofstadter, Gödel, Escher, Bach</small>
-            </blockquote>
+            <div class="content-wrapper">
+                <h2 class="slide-title">Modern websites</h2>
+                <blockquote>
+                    <p>
+                        The endless connections which all things have to each other is only
+        hinted at here, yet the hint is enough.
+                    </p>
+                    <small class="quote-attribution">Douglas Hofstadter, Gödel, Escher, Bach</small>
+                </blockquote>
 
-            <p>
-                What are you looking for in a web page? Chances are, there are a few things:
-            </p>
-            <ul>
-                <li>A dynamic interface that goes beyond traditional media</li>
-                <li>Support for interaction between you and the reader</li>
-                <li>Seamless, natural integration of many (sometimes complex) goals</li>
-            </ul>
-            <p>
-                The possibilities of the web are vast, which is a large part of
-                what draws me to development. My mission is to create powerful,
-                enjoyable <em>platforms</em> that connect people and make a
-                positive impact.
-            </p>
+                <p>
+                    What are you looking for in a web page? Chances are, there are a few things:
+                </p>
+                <ul>
+                    <li>A dynamic interface that goes beyond traditional media</li>
+                    <li>Support for interaction between you and the reader</li>
+                    <li>Seamless, natural integration of many (sometimes complex) goals</li>
+                </ul>
+                <p>
+                    The possibilities of the web are vast, which is a large part of
+                    what draws me to development. My mission is to create powerful,
+                    enjoyable <em>platforms</em> that connect people and make a
+                    positive impact.
+                </p>
+            </div>
         </div>
 
         <div class="section about-slide">
-            <h2 class="slide-title center">Technologies I've worked with</h2>
-            <h3>Front-end</h3>
-            <p>CSS, JavaScript, jQuery, AngularJS, Leaflet</p>
-            <br/>
-            <h3>Back-end</h3>
-            <p>Python, Django, APIs, MySQL, NodeJS</p>
-            <br/>
-            <h3>Other tools</h3>
-            <p>Git, Babel, webpack, NPM, Apache, Ubuntu</p>
+            <div class="content-wrapper">
+                <h2 class="slide-title center">Technologies I've worked with</h2>
+                <h3>Front-end</h3>
+                <p>CSS, JavaScript, jQuery, AngularJS, Leaflet</p>
+                <br/>
+                <h3>Back-end</h3>
+                <p>Python, Django, APIs, MySQL, NodeJS</p>
+                <br/>
+                <h3>Other tools</h3>
+                <p>Git, Babel, webpack, NPM, Apache, Ubuntu</p>
+            </div>
         </div>
 
+        <!-- Projects slide -->
         <div id="projects" class="section projects-slide">
-            <h2 class="slide-title center">Recent projects</h2>
-            <div class="project">
-                <div class="project-description">
-                    <h3><a href="https://nathanclonts.com/hydronote/">hydronote</a></h3>
-                    <a class="code-link" title="Source on GitHub" href="https://github.com/kokopelli314/hydronote">
-                            &lt;Source code/&gt;</a>
-                    <p>A lightweight note-taking app in the cloud.</p>
-                    <ul class="tags">
-                        <li>Django</li>
-                        <li>AngularJS</li>
-                        <li>Django Rest Framework</li>
-                        <li>tinyMCE rich text editor</li>
-                    </ul>
+            <div class="content-wrapper">
+                <h2 class="slide-title center">Recent projects</h2>
+                <div class="project">
+                    <div class="project-description">
+                        <h3><a href="https://nathanclonts.com/hydronote/">hydronote</a></h3>
+                        <a class="code-link" title="Source on GitHub" href="https://github.com/kokopelli314/hydronote">
+                                &lt;Source code/&gt;</a>
+                        <p>A lightweight note-taking app in the cloud.</p>
+                        <ul class="tags">
+                            <li>Django</li>
+                            <li>AngularJS</li>
+                            <li>Django Rest Framework</li>
+                            <li>tinyMCE rich text editor</li>
+                        </ul>
+                    </div>
+                    <a class="img-link" href="https://nathanclonts.com/hydronote/">
+                        <img class="project-screenshot" src="{{ MEDIA_URL }}hydronote-screenshot.png" />
+                    </a>
                 </div>
-                <a class="img-link" href="https://nathanclonts.com/hydronote/">
-                    <img class="project-screenshot" src="{{ MEDIA_URL }}hydronote-screenshot.png" />
-                </a>
-            </div>
 
-            <div class="project">
-                <div class="project-description">
-                    <h3><a href="https://nathanclonts.com/podcast/">Podcast site</a></h3>
-                    <a class="code-link" title="Source on GitHub" href="https://github.com/kokopelli314/podcast">
-                            &lt;Source code/&gt;</a>
-                    <p>An interactive podcast website.</p>
-                    <ul class="tags">
-                        <li>Django</li>
-                        <li>Customized audio player</li>
-                    </ul>
+                <div class="project">
+                    <div class="project-description">
+                        <h3><a href="https://nathanclonts.com/podcast/">Podcast site</a></h3>
+                        <a class="code-link" title="Source on GitHub" href="https://github.com/kokopelli314/podcast">
+                                &lt;Source code/&gt;</a>
+                        <p>An interactive podcast website.</p>
+                        <ul class="tags">
+                            <li>Django</li>
+                            <li>Customized audio player</li>
+                        </ul>
+                    </div>
+                    <a class="img-link" href="https://nathanclonts.com/podcast/">
+                        <img class="project-screenshot" src="{{ MEDIA_URL }}podcast-screenshot.png" />
+                    </a>
                 </div>
-                <a class="img-link" href="https://nathanclonts.com/podcast/">
-                    <img class="project-screenshot" src="{{ MEDIA_URL }}podcast-screenshot.png" />
-                </a>
             </div>
         </div>
+        <!-- End of Projects slide -->
 
         <div id="contact" class="section contact-slide">
-            <h2>Let's talk</h2>
-            <p>
-                Want to talk about a project? Shoot me a message in the text box below and I'll get back to you soon!
-            </p>
+            <div class="content-wrapper">
+                <h2>Let's talk</h2>
+                <p>
+                    Want to talk about a project? Shoot me a message in the text box below and I'll get back to you soon!
+                </p>
 
-            <form id="contact-form" class="contact-form" role="form" action="send_email" method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Send</button>
-            </form>
+                <form id="contact-form" class="contact-form" role="form" action="send_email" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="form-response-wrapper">
+                        <p id="contact-form-message" class="form-response"></p>
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div>
     </div>
 

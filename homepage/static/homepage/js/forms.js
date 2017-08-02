@@ -1,26 +1,33 @@
+/* Handles contact form submission and passes the AJAX request to Django.
+ *
+**/
 $(function() {
     // Listen for contact form submissions
     $('#contact-form').on('submit', function (event) {
+        // Prevent redirection by Django
         event.preventDefault();
+
+        // clear old response in case user previously sent a message
+        $('#contact-form-message').text('');
+
+        // Get and send form data
         var data = $(this).serializeArray();
-        send_email(data, $(this).attr('action'));
+        sendEmail(data, $(this).attr('action'), handleFormResponse);
     });
 
     // Post a request to make the email based on contact form data
-    function send_email(data, url) {
-        console.log(data);
-        console.log(url);
+    function sendEmail(data, url, callback) {
         $.ajax({
             data: data,
             type: 'POST',
             url: url,
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(response) {
-                console.log(response);
-            }
+            success: callback,
+            error: callback
         });
+    };
+
+    function handleFormResponse(message) {
+        $('#contact-form-message').text(message);
     };
 
     //////////////////////////
