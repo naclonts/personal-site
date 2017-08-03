@@ -1,5 +1,10 @@
 html {
     font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 html, body {
@@ -214,6 +219,7 @@ html, body {
 /* Contact form   */
 /******************/
 .section.contact-slide {
+    background-color: #cdcdcd;
     background-color: hsl(212, 13%, 37%);
     color: #FFF;
 }
@@ -255,6 +261,53 @@ html, body {
 }
 
 
+/* Input areas */
+.contact-form .field-wrapper {
+    position: relative;
+    margin-top: 2.7rem;
+    margin-bottom: 2.7rem;
+    border-
+}
+
+.contact-form input, .contact-form textarea {
+    text-transform: none;
+    font-size: 1.3em;
+    color: inherit;
+    background: none;
+    padding: .125rem .125rem .0625rem;
+    border-width: 0;
+    border-color: transparent;
+    line-height: 1.9;
+    width: 100%;
+    transition: all .28s ease;
+    box-shadow: none;
+    border-bottom: 1px solid #eee;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    /* Add border, and reduce margin to avoid shifting element */
+    border-bottom-width: 4px;
+    margin-bottom: -2px;
+}
+
+.contact-form label {
+    position: absolute;
+    pointer-events: none;
+    top: -1.25rem;
+    font-size: 1em;
+    padding-left: .125rem;
+    z-index: 1;
+    color: inherit;
+    font-weight: 400;
+    transition: all .28s ease;
+}
+
+.contact-form label.unused-field {
+    color: #eee;
+    top: .25rem;
+    font-size: 1.3em;
+}
 
 /********************/
 /* Responsiveness   */

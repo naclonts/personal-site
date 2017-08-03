@@ -2,6 +2,33 @@
  *
 **/
 $(function() {
+    ////////////////////////////
+    // Input styling handling
+    ////////////////////////////
+    function setUpStyles() {
+        // Initial class: label occupies the input space
+        $('.contact-form label').addClass('unused-field');
+
+        // Move label out of way when input field is selected...
+        $('.contact-form input, .contact-form textarea').on('focus', function() {
+            var label = $(this).siblings('label');
+            label.removeClass('unused-field');
+        });
+        // ...Then move the label back to cover the input if field is deselected
+        // and empty
+        $('.contact-form input, .contact-form textarea').on('focusout', function() {
+            if (this.value == '') {
+                var label = $(this).siblings('label');
+                label.addClass('unused-field');
+            }
+        });
+    };
+    setUpStyles();
+
+
+    ////////////////////////////
+    // Form submission handling
+    ////////////////////////////
     // Listen for contact form submissions
     $('#contact-form').on('submit', function (event) {
         // Prevent redirection by Django
@@ -26,9 +53,11 @@ $(function() {
         });
     };
 
+    // Handle the response to user's form submission
     function handleFormResponse(message) {
         $('#contact-form-message').text(message);
     };
+
 
     //////////////////////////
     // CSRF cookie handling //

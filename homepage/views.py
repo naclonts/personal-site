@@ -18,10 +18,15 @@ def bio(request):
 
 
 def send_email(request):
+    """
+    View that sends an email to site's admin. Returns a message in response,
+    indicating successfulness.
+    """
     # Send email on form POST requests
     if request.method == 'POST':
         form = ContactForm(data=request.POST)
 
+        # Process the email if good
         if form.is_valid():
             contact_name = request.POST.get('contact_name', '')
             contact_email = request.POST.get('contact_email', '')
@@ -44,13 +49,14 @@ def send_email(request):
                 headers = {'Reply-To': contact_email},
             )
             email.send()
-
             message = 'Email successfully sent.'
 
+        # Form wasn't valid
         else:
             message = 'There was an issue with the form submission. Please try again.'
 
+    # Non-POST requests
     else:
-        message = 'Only POST requests are allowed for this link.'
+        message = 'It looks like the request was submitted incorrectly. Note that only POST requests are valid for this URL.'
 
     return HttpResponse(message)

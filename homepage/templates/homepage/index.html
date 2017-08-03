@@ -106,6 +106,7 @@
         </div>
         <!-- End of Projects slide -->
 
+        <!-- Contact form slide  -->
         <div id="contact" class="section contact-slide">
             <div class="content-wrapper">
                 <h2>Let's talk</h2>
@@ -115,7 +116,16 @@
 
                 <form id="contact-form" class="contact-form" role="form" action="send_email" method="post">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {% for field in form %}
+                        <div class="field-wrapper">
+                            {{ field.errors }}
+                            {{ field.label_tag }} {{ field }}
+                            {% if field.help_text %}
+                                <p class="help">{{ field.help_text|safe }}</p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
                     <div class="form-response-wrapper">
                         <p id="contact-form-message" class="form-response"></p>
                     </div>

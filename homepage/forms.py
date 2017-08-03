@@ -1,16 +1,21 @@
 from django import forms
 
 class ContactForm(forms.Form):
-    contact_name = forms.CharField(required=True)
-    contact_email = forms.EmailField(required=True)
+    contact_name = forms.CharField(
+        required=True,
+        label='Name',
+    )
+    contact_email = forms.EmailField(
+        required=True,
+        label='Email',
+    )
     content = forms.CharField(
         required=True,
-        widget=forms.Textarea,
+        label='Message',
+        widget=forms.Textarea(attrs={'rows': 4}),
     )
 
     def __init__(self, *args, **kwargs):
+        """Remove colon suffixes from labels."""
+        kwargs.setdefault('label_suffix', '')
         super(ContactForm, self).__init__(*args, **kwargs)
-        self.fields['contact_name'].label = 'Your name'
-        self.fields['contact_email'].label = 'Your email'
-        self.fields['content'].label = 'Message'
-        self.label_suffix = ''
