@@ -1,3 +1,3 @@
-A site with a splash page, blog, and some tasty fractals.
+A simple page in a long-form-copy-ish layout.
 
-Uses Django for template extension and blogging fun.
+Uses Django for template extension and "minimalistic" blog.
