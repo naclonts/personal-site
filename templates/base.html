@@ -18,11 +18,20 @@
         <!-- Beginning of content       -->
         {% block title %}<title>Nathan Clonts</title>{% endblock %}
 
+        <link rel="stylesheet" href="{% static "css/hamburgers.css" %}" type="text/css" />
         <link rel="stylesheet" href="{% static "css/base-styles.css" %}" type="text/css" />
         {% block stylesheets %}{% endblock %}
     </head>
 
     <body>
+        <!-- Hamburger menu -->
+        <nav class="menu">
+            <button class="hamburger hamburger--vortex" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </nav>
         {% block content %}
         {% endblock %}
     </body>

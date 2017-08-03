@@ -1,0 +1,23 @@
+.menu {
+    z-index: 1;
+    position: fixed;
+    right: 0;
+    color: #444;
+}
+
+@media screen and (max-width: 600px) {
+    .menu {
+        bottom: 0;
+        background-color: #ccc;
+        margin-bottom: 5px;
+    }
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: #777;
+}
+
+.hamburger:focus {
+    outline: 1px solid rgba(99, 99, 99, 0.33);
+    background-color: rgba(245, 235, 255, 0.2);
+}
