@@ -24,14 +24,19 @@
     </head>
 
     <body>
-        <!-- Hamburger menu -->
-        <nav class="menu">
-            <button class="hamburger hamburger--vortex" type="button">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </button>
+        <!-- Actual slide-in menu -->
+        <nav class="menu hidden">
+            <a href="{% url 'homepage:index' %}" class="menu-link">about</a>
+            <a href="{% url 'homepage:index' %}#projects" class="menu-link">projects</a>
         </nav>
+
+        <!-- Hamburger menu button -->
+        <button class="hamburger hamburger--vortex" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+
         {% block content %}
         {% endblock %}
     </body>
