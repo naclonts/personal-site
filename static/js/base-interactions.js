@@ -1,4 +1,3 @@
-
 function baseSetUp() {
     // Handle burger menu
     $('.hamburger').click(function(e) {

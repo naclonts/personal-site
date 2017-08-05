@@ -26,8 +26,18 @@
     <body>
         <!-- Actual slide-in menu -->
         <nav class="menu hidden">
-            <a href="{% url 'homepage:index' %}" class="menu-link">about</a>
-            <a href="{% url 'homepage:index' %}#projects" class="menu-link">projects</a>
+            <a href="{% url 'homepage:index' %}" class="menu-link">
+                <span>about</span>
+            </a>
+            <a href="{% url 'homepage:index' %}#projects" class="menu-link">
+                <span>projects</span>
+            </a>
+            <a href="{% url 'blog:post_list' %}" class="menu-link">
+                <span>blog</span>
+            </a>
+            <a href="{% url 'homepage:index' %}#contact" class="menu-link">
+                <span>contact</span>
+            </a>
         </nav>
 
         <!-- Hamburger menu button -->
