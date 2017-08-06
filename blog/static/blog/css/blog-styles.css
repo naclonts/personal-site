@@ -10,10 +10,8 @@
 }
 
 .foreground-container {
-    margin: 2.2em auto;
+    margin: 0 auto;
     background-color: #fff;
-    height: 100%;
-    width: 98%;
     padding-bottom: 2em;
     z-index: 5;
     color: #222;
@@ -29,20 +27,6 @@
     z-index: -1;
 }
 
-#navigation-label {
-    position: fixed;
-    top: 0em;
-    left: 0;
-    height: 1em;
-    line-height: 1em;
-    width: 38.2%;
-    z-index: 3;
-    color: #aaa;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-}
-
-
 .blog-footer {
     position: absolute;
     bottom: 0;
@@ -54,6 +38,7 @@
 
 .blog-title {
     padding-top: 10px;
+    margin-top: 0px;
     text-align: center;
     color: hsl(39, 76%, 18%);
     transition: all 1s;
