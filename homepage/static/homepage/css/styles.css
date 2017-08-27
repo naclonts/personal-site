@@ -145,14 +145,24 @@
       );
       background-color: #fff;
 }
+
 .section.about-slide .list-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
-.section .technology-category {
-    /*flex: 1 0 33%;*/
+.section.about-slide .technology-category {
+    margin: 0 4%;
+    flex: 1;
+}
+
+.section.about-slide .technology-category ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.section.about-slide .technology-category li {
+    margin: 4% 0;
 }
 
 
