@@ -325,7 +325,7 @@
     padding-left: .125rem;
     z-index: 1;
     color: hsl(104, 70%, 90%);
-    border-bottom: 1px solid hsla(104, 60%, 90%, 1);
+    border-bottom: 1px solid hsla(104, 40%, 90%, 0.2);
     font-weight: 400;
     transition: all .28s ease;
 }
