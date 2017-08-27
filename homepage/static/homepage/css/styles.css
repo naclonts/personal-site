@@ -78,10 +78,6 @@
     background-color: #FFF;
 }
 
-.section.about-slide {
-    background-color: #f5f5f5;
-}
-
 .section.projects-slide {
     background-color: #FFF;
 }
@@ -133,6 +129,32 @@
 .section .quote-attribution::before {
     content: '— ';
 }
+
+/*********************/
+/* Technology summary*/
+/*********************/
+.section.about-slide {
+    background:
+      /* On "top" */
+      repeating-linear-gradient(
+        65deg,
+        transparent,
+        transparent 10px,
+        #fafafa 10px,
+        #fafafa 20px
+      );
+      background-color: #fff;
+}
+.section.about-slide .list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.section .technology-category {
+    /*flex: 1 0 33%;*/
+}
+
 
 /********************/
 /* Projects section */
