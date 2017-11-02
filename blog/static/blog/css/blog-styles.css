@@ -14,8 +14,9 @@
     background-color: #fff;
     padding-bottom: 2em;
     z-index: 5;
-    color: #222;
-    max-width: 50em;
+    color: #333;
+    max-width: 800px;
+    line-height: 1.5;
 }
 
 #canvas1 {
@@ -53,13 +54,13 @@
 }
 
 .foreground-container a {
-    font-family: monospace;
     text-decoration: none;
-    font-size: 1.1em;
-    color: hsl(97, 100%, 23%);
+    color: inherit;
+    border-bottom: 1px solid hsla(97, 100%, 36%, 0.5);
+    transition: 0.1s ease-in all;
 }
-.blog-listing a:hover {
-    text-decoration: underline;
+.foreground-container a:hover {
+    border-bottom: 2px solid hsla(97, 100%, 36%, 1);
 }
 
 .blog-listing:after {
@@ -107,12 +108,14 @@
 /* Code block formatting */
 .post-content pre {
     padding: 2% 0 2% 6%;
-    background-color: hsl(120, 35%, 89%);
-    border-top: 1px solid #666;
-    border-bottom: 1px solid #666;
+    border: 0.5em;
+    border-left-style: solid;
+    border-color: hsla(97, 100%, 36%, 1);
+
+    background-color: hsl(97, 25%, 92%);
     white-space: no-wrap;
     overflow-x: scroll;
 }
 .post-content code {
-    background-color: hsl(120, 35%, 89%);
+    background-color: hsl(97, 25%, 92%);
 }
