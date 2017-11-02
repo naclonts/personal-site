@@ -13,13 +13,13 @@
                     Created {{ post.created_date|date:"F d, Y" }}
                 </p>
             </div>
+            <p>
+                <a href="{% url 'blog:post_list' %}">Back to post list.</a>
+            </p>
         </div>
     </div>
-    <canvas id="canvas1" class="fractal-canvas active"></canvas>
 </body>
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript" src="{% static "homepage/js/fractal.js" %}"></script>
-<script>drawBlogFractals();</script>
 {% endblock %}
