@@ -39,23 +39,34 @@ $(function() {
 
         // Get and send form data
         var data = $(this).serializeArray();
-        sendEmail(data, $(this).attr('action'), handleFormResponse);
+        sendEmail(data, $(this).attr('action'),
+                  handleFormResponseSuccess, handleFormResponseError);
+    });
+    // Listen for Submit button (uses web component)
+    $('#contact-form-submit').on('click', (event) => {
+        $('#contact-form').submit();
     });
 
     // Post a request to make the email based on contact form data
-    function sendEmail(data, url, callback) {
+    function sendEmail(data, url, success, error) {
         $.ajax({
             data: data,
             type: 'POST',
             url: url,
-            success: callback,
-            error: callback
+            success: success,
+            error: error
         });
     };
 
     // Handle the response to user's form submission
-    function handleFormResponse(message) {
+    function handleFormResponseSuccess(message) {
         $('#contact-form-message').text(message);
+        // clear the data
+        document.getElementById('contact-form').reset();
+    };
+    function handleFormResponseError(xhr, options, thrownError) {
+        console.log('err!');
+        $('#contact-form-message').text(xhr.responseText);
     };
 
 

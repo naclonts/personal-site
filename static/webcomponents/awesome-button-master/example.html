@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Awesome Button</title>
+		<!-- Page style -->
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="example.css">
+		<!-- Webcomponents (cross-browser polyfill) -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.6.0/webcomponents.min.js"></script>
+		<!-- Awesome Button -->
+		<link async rel="import" href="awesome-button.html"/>
+		<link async rel="import" href="github-fork.html"/>
+	</head>
+	<body>
+		<main>
+			<div>
+				<section>
+					<h1>Web components are awesome</h1>
+					<p>The awesome-button is a cool option to quickly add share buttons (or any kind of buttons) to your projects.</p>
+					<h2>&lt;awesome-button/&gt;</h2>
+					<ul class="examples">
+						<!-- Awesome Button tags -->
+						<li>
+							<div class="code">
+								<span>&lt;awesome-button</span> <em>type</em>=<b>"facebook"</b> <em>sharer</em><span>&gt;</span>Share it!<span>&lt;/awesome-button&gt;</span>
+							</div>
+							<awesome-button type="facebook">Share it!</awesome-button>
+						</li>
+						<li>
+							<div class="code">
+								<span>&lt;awesome-button</span> <em>type</em>=<b>"gplus"</b> <em>sharer</em><span>&gt;</span>Share it!<span>&lt;/awesome-button&gt;</span>
+							</div>
+							<awesome-button type="plus" sharer>Share it!</awesome-button>
+						</li>
+						<li>
+							<div class="code">
+								<span>&lt;awesome-button</span> <em>type</em>=<b>"twitter"</b> <em>sharer</em><span>&gt;</span><span>&lt;/awesome-button&gt;</span>
+							</div>
+							<awesome-button type="twitter" sharer></awesome-button>
+						</li>
+						<li>
+							<div class="code">
+								<span>&lt;awesome-button</span> <em>type</em>=<b>"github"</b> <em>href</em>=<b>"http://github.com/"</b><span>&gt;</span>Fork it!<span>&lt;/awesome-button&gt;</span>
+							</div>
+							<awesome-button type="github" href="http://github.com/rcaferati/awesome-button">Fork it!</awesome-button>
+						</li>
+						<li>
+							<div class="code">
+								<span>&lt;awesome-button</span> <em>type</em>=<b>"external"</b> <em>target</em>=<b>"_blank"</b> <em>href</em>=<b>"http://caferati.me/labs/awesome-button"</b><span>&gt;</span>Try these buttons<span>&lt;/awesome-button&gt;</span>
+							</div>
+							<awesome-button color="grey" target="_blank" href="http://caferati.me/labs/awesome-button" type="external">Try these buttons</awesome-button>
+						</li>
+					</ul>
+					<footer>
+						<small>Check this and more projects at my <a href="http://caferati.me/labs">labs page</a>.</small>
+					</footer>
+				</section>
+			</div>
+		</main>
+		<github-fork href="http://github.com/rcaferati" hidden></github-fork>
+		<script>
+			setTimeout(function(){
+				document.querySelector("github-fork").enter();
+			}, 900);
+		</script>
+	</body>
+</html>

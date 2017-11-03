@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block stylesheets %}
+<link rel="import" href="{% static "webcomponents/awesome-button-master/awesome-button.html" %}">
 <link rel="stylesheet" href="{% static "homepage/css/styles.css" %}" type="text/css" />
 {% endblock %}
 
@@ -17,7 +18,7 @@
                     </p>
                     <p>
                         <a href="#contact">Contact me</a> if you'd like to collaborate on something, or feel free to check out some <a href="#projects">projects</a> I've been working on.
-                        
+
                     </p>
                 </div>
             </div>
@@ -151,7 +152,7 @@
         <!-- Contact form slide  -->
         <div id="contact" class="section contact-slide">
             <div class="content-wrapper">
-                <h2>Let's talk</h2>
+                <h2>Wanna chat?</h2>
                 <p>
                     Want to talk about a project? Shoot me a message in the text box below and I'll get back to you soon!
                 </p>
@@ -171,7 +172,8 @@
                     <div class="form-response-wrapper">
                         <p id="contact-form-message" class="form-response"></p>
                     </div>
-                    <button type="submit">Send</button>
+                    <!-- <button type="submit">Send</button> -->
+                    <awesome-button id="contact-form-submit" type="submit" color="green">Send</awesome-button>
                 </form>
             </div>
         </div>
@@ -181,5 +183,6 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.3/webcomponents.min.js"></script>
 <script src="{% static "homepage/js/forms.js" %}" type="text/javascript"></script>
 {% endblock %}

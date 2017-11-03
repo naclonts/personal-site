@@ -263,16 +263,19 @@
     display: block;
 }
 
+.awesome-button-wrapper {
+    width: 500px;
+}
+
 .contact-form button {
-    width: 10em;
-    height: 3em;
-    line-height: 3em;
-    font-size: 1em;
+    /*height: 3em;*/
+    /*line-height: 3em;*/
+    /*font-size: 1em;*/
     text-transform: uppercase;
-    color: #fff;
+    /*color: #fff;*/
     background-color: hsl(200, 38%, 45%);
-    text-shadow: -1px 1px hsl(200, 38%, 35%);
-    border: none;
+    /*text-shadow: -1px 1px hsl(200, 38%, 35%);*/
+    /*border: none;*/
 }
 
 .contact-form button:hover,

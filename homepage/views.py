@@ -50,13 +50,16 @@ def send_email(request):
             )
             email.send()
             message = 'Email successfully sent.'
+            status = 200
 
         # Form wasn't valid
         else:
             message = 'There was an issue with the form submission. Please try again.'
+            status = 400
 
     # Non-POST requests
     else:
         message = 'It looks like the request was submitted incorrectly. Note that only POST requests are valid for this URL.'
+        status = 405
 
-    return HttpResponse(message)
+    return HttpResponse(message, status=status)
