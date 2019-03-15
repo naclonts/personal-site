@@ -24,9 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = secret_settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = getattr(secret_settings, 'DEBUG', False)
 
 ALLOWED_HOSTS = ['nathanclonts.com', 'https://nathanclonts.com', '45.55.66.186',]
+if DEBUG:
+	ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
 
 
 # Application definition
