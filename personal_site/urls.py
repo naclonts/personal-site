@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^', include('homepage.urls', namespace='homepage')),
-    url(r'^blog/', include('blog.urls', namespace='blog')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^', include(('homepage.urls', 'homepage'), namespace='homepage')),
+    url(r'^blog/', include(('blog.urls', 'blog'), namespace='blog')),
+    url(r'^admin/', admin.site.urls)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,3 +6,4 @@ media/
 .tern-project
 personal_site/settings.py
 .vscode
+*/migrations/*

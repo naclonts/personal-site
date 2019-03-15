@@ -5,7 +5,8 @@ Uses Django for templates, email handling, and "minimalistic" blog. Thanks to Ra
 ### Setup
 
 Create a file "./personal_site/secret_settings.py" defining:
-```
+
+```python
 # Database connection
 DB_NAME = ''
 DB_USER = ''
@@ -24,9 +25,17 @@ PERSONAL_EMAIL = 'email to send contact form messages to'
 SECRET_KEY = 'a random key'
 ```
 
-Then start the server:
+Install dependencies and make the database:
+
 ```shell
 mkvirtualenv homepage # optional
 pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Then start the server:
+
+```shell
 python manage.py runserver
 ```

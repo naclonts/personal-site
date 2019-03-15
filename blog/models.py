@@ -8,7 +8,7 @@ import string
 
 
 class Post(models.Model):
-    author = models.ForeignKey('auth.User')
+    author = models.ForeignKey('auth.User', on_delete=models.PROTECT)
     title = models.CharField(max_length=200)
     text = models.TextField()
     slug = models.SlugField(unique=True, blank=True)
@@ -41,9 +41,8 @@ class Post(models.Model):
             s = s.strip() + '...'
             return s
 
-    @models.permalink
     def get_absolute_url(self):
-        return 'blog:posts', (self.slug,)
+        return reverse('blog:posts', args=[self.slug])
 
     def __str__(self):
         return self.title
