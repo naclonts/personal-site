@@ -16,10 +16,11 @@ function baseSetUp() {
     // Set up baffle text
     let b = baffle('.baffle-me');
     b.set({
-        characters: '█▓█ ▒░/▒░ █░▒▓/ █▒▒ ▓▒▓/█ ░█▒/ ▒▓░ █<░▒ ▓/░>',
+        characters: '<>01█▓█ ▒░/▒░ █░▒▓/ █▒▒ ▓▒▓/█ ░█▒/ ▒▓░ █<░▒ ▓/░>',
+        exclude: ['D']
     })
     b.start();
-    b.reveal(5000);
+    b.reveal(1000, 400);
 }
 
 $(document).ready(baseSetUp);

@@ -90,6 +90,27 @@
     background-color: #FFF;
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
+.iconic-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -1em;
+    padding-left: 0;
+}
+.iconic-list li {
+    margin: 0 1em;
+    max-width: 10em;
+}
+.iconic-list li svg {
+    width: 40px;
+    height: 40px;
+}
+
 
 /********************/
 /* Quotes           */
@@ -98,7 +119,7 @@
     position: relative;
     background: #f9f9f9;
     border-left: 10px solid #ccc;
-    margin: 1.5em 0;
+    margin: 3em 0 0 0;
     padding: 0.5em 10px;
     quotes: "\201C""\201D""\2018""\2019";
 }
