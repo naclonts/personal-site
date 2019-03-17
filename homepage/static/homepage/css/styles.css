@@ -362,6 +362,17 @@ pre {
 }
 
 /********************/
+/* Footer           */
+/********************/
+footer.section {
+    font-size: 1em;
+    background: hsl(15, 13%, 6%);
+    color: #ddd;
+    min-height: 50px;
+}
+
+
+/********************/
 /* Responsiveness   */
 /********************/
 
