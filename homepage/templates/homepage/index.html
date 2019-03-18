@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel="import" href="{% static "webcomponents/awesome-button-master/awesome-button.html" %}">
 <link rel="stylesheet" href="{% static "homepage/css/styles.css" %}" type="text/css" />
 {% endblock %}
 
@@ -12,14 +11,13 @@
         <div class="section first-slide">
             <div class="content-wrapper">
                 <div class="text-overlay">
-                    <!-- <h2 class="slide-title">Hi, my name is Nathan.</h2> -->
                     <h2>
                         I help small businesses save time by creating custom enterprise
-                        software
+                        software.
                     </h2>
                     <div class="contact-button-wrapper">
-                        <a href="#contact">
-                            <awesome-button class="contact-link-button" color="green">Let's talk</awesome-button>
+                        <a href="#contact" class="contact-link-anchor">
+                            <button class="btn">Let's talk</button>
                         </a>
                     </div>
                 </div>
@@ -27,49 +25,51 @@
         </div>
 
         <div class="section second-slide">
-            <div class="content-wrapper">
-                <pre><h1 class="slide-title baffle-me">Data Is What We Do</h1></pre>
+            <div class="content-wrapper overflow-hidden">
+                <pre><h1 id="baffle-1" class="slide-title baffle-me">Data Is What We Do</h1></pre>
 
-                <p>
-                    There are more opportunities now than ever before for businesses
-                    to save money and time by using the right software.
-                </p>
+                <div>
+                    <p>
+                        There are more opportunities now than ever before for businesses
+                        to save money and time by using the right software.
+                    </p>
+                    <p>
+                        My focus is putting the right tools into your hands based on
+                        the specific needs of your business.
+                    </p>
+                </div>
 
-                <p>
-                    My focus is putting the right tools into your hands based on
-                    the specific needs of your business.
-
-                    <ul class="iconic-list">
-                        <li>
-                            <h3>Efficiency</h3>
-                            <img src="{% static 'svg/tablet.svg' %}" alt="Computer and phone" width="80px">
-                            <p>
-                                Enterprise resource planning tools can save
-                                time automating manual tasks
-                            </p>
-                        </li>
-                        <li>
-                            <h3>Insight</h3>
-                            <img src="{% static 'svg/chart.svg' %}" alt="Charts" width="80px">
-                            <p>
-                                See your whole business at a glance by
-                                integrating multiple systems in one place
-                            </p>
-                        </li>
-                        <li>
-                            <h3>Improvement</h3>
-                            <img src="{% static 'svg/wrench.svg' %}" alt="Gears" width="80px">
-                            <p>
-                                Need help with an existing application? I can
-                                help with security, upgrades, and bug fixes
-                            </p>
-                        </li>
-                    </ul>
-                </p>
+                <ul class="iconic-list slide-on-scroll">
+                    <li>
+                        <h3>Efficiency</h3>
+                        <img src="{% static 'svg/tablet.svg' %}" alt="Computer and phone" width="80px">
+                        <p>
+                            Enterprise resource planning tools can save
+                            time automating manual tasks
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Insight</h3>
+                        <img src="{% static 'svg/chart.svg' %}" alt="Charts" width="80px">
+                        <p>
+                            See your whole business at a glance by
+                            integrating multiple systems in one place
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Improvement</h3>
+                        <img src="{% static 'svg/wrench.svg' %}" alt="Gears" width="80px">
+                        <p>
+                            Need help with an existing application? I can
+                            help with security, upgrades, and bug fixes
+                        </p>
+                    </li>
+                </ul>
+            
                 
                 <br>
-                <a href="#contact">
-                    <awesome-button class="contact-link-button" color="green">Let's talk</awesome-button>
+                <a href="#contact" class="contact-link-anchor">
+                    <button class="btn">Let's talk</button>
                 </a>
 
 
@@ -96,6 +96,7 @@
                             <li>VueJS</li>
                             <li>jQuery</li>
                             <li>Responsive CSS</li>
+                            <li>WebSockets</li>
                         </ul>
                     </div>
                     <div class="technology-category">
@@ -112,9 +113,9 @@
                         <h3>General</h3>
                         <ul>
                             <li>Server administration</li>
+                            <li>SSL and security improvements</li>
                             <li>Functional programming</li>
                             <li>Object-oriented programming</li>
-                            <li>Git</li>
                         </ul>
                     </div>
                 </div>
@@ -145,7 +146,7 @@
                     <div class="form-response-wrapper">
                         <p id="contact-form-message" class="form-response"></p>
                     </div>
-                    <awesome-button id="contact-form-submit" type="submit" color="green" width="20em">Send</awesome-button>
+                    <button id="contact-form-submit" class="btn" type="submit" width="20em">Send</button>
                 </form>
             </div>
         </div>
