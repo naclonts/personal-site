@@ -21,6 +21,16 @@
         <link rel="stylesheet" href="{% static "css/hamburgers.css" %}" type="text/css" />
         <link rel="stylesheet" href="{% static "css/base-styles.css" %}" type="text/css" />
         {% block stylesheets %}{% endblock %}
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104777835-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-104777835-1');
+	</script>
     </head>
 
     <body>
@@ -29,9 +39,9 @@
             <a href="{% url 'homepage:index' %}" class="menu-link">
                 <span>about</span>
             </a>
-            <a href="{% url 'homepage:index' %}#projects" class="menu-link">
-                <span>projects</span>
-            </a>
+            <!-- <a href="{% url 'homepage:index' %}#projects" class="menu-link"> -->
+            <!--     <span>projects</span> -->
+            <!-- </a> -->
             <a href="{% url 'blog:post_list' %}" class="menu-link">
                 <span>blog</span>
             </a>
