@@ -1,44 +1,10 @@
 import baffle from 'baffle'
 
-(function ($) {
-    /**
-     * Copyright 2012, Digital Fusion
-     * Licensed under the MIT license.
-     * http://teamdf.com/jquery-plugins/license/
-     *
-     * @author Sam Sehnert
-     * @desc A small plugin that checks whether elements are within
-     *     the user visible viewport of a web browser.
-     *     only accounts for vertical position, not horizontal.
-     */
-    $.fn.visible = function (partial) {
-        var $t = $(this),
-            $w = $(window),
-            viewTop = $w.scrollTop(),
-            viewBottom = viewTop + $w.height(),
-            _top = $t.offset().top,
-            _bottom = _top + $t.height(),
-            compareTop = partial === true ? _bottom : _top,
-            compareBottom = partial === true ? _top : _bottom;
-        return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-    };
-})(jQuery);
-
-function baseSetUp() {
-    // Handle burger menu
-    $('.hamburger').click(function(e) {
-        $(this).toggleClass('is-active');
-        $('.menu').toggleClass('hidden');
-    });
-
-    $('.menu-link').click(function(e) {
-        $('.hamburger').removeClass('is-active');
-        $('.menu').addClass('hidden');
-    });
-
-
-    // Set up baffle text
-    let b = baffle('.baffle-me');
+/**
+ * Set up interactions/animations for front home page
+ * @param {Baffle} b already set-up baffle.js object
+ */
+function mainPageSetup(b) {
     b.set({
         characters: '<>01█▓█ ▒░/▒░ █░▒▓/ █▒▒ ▓▒▓/█ ░█▒/ ▒▓░ █<░▒ ▓/░>',
         exclude: ['D']
@@ -77,9 +43,54 @@ function baseSetUp() {
                 el.addClass("come-in");
             }
         });
-
     });
 }
+
+function baseSetUp() {
+    // Handle burger menu
+    $('.hamburger').click(function(e) {
+        $(this).toggleClass('is-active');
+        $('.menu').toggleClass('hidden');
+    });
+
+    $('.menu-link').click(function(e) {
+        $('.hamburger').removeClass('is-active');
+        $('.menu').addClass('hidden');
+    });
+
+
+    // Set up baffle text
+    let b = baffle('.baffle-me');
+    if (b.elements.length > 0) {
+        mainPageSetup(b);
+    }
+}
+
+
+
+(function ($) {
+    /**
+     * Copyright 2012, Digital Fusion
+     * Licensed under the MIT license.
+     * http://teamdf.com/jquery-plugins/license/
+     *
+     * @author Sam Sehnert
+     * @desc A small plugin that checks whether elements are within
+     *     the user visible viewport of a web browser.
+     *     only accounts for vertical position, not horizontal.
+     */
+    $.fn.visible = function (partial) {
+        var $t = $(this),
+            $w = $(window),
+            viewTop = $w.scrollTop(),
+            viewBottom = viewTop + $w.height(),
+            _top = $t.offset().top,
+            _bottom = _top + $t.height(),
+            compareTop = partial === true ? _bottom : _top,
+            compareBottom = partial === true ? _top : _bottom;
+        return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+    };
+})(jQuery);
 
 $(document).ready(baseSetUp);
 

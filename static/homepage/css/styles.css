@@ -1,3 +1,4 @@
+
 .section {
     padding: 4% 4%;
     font-size: 1.15em;
@@ -6,7 +7,7 @@
     color: hsl(212, 13%, 37%);
 }
 
-.section .content-wrapper {
+.content-wrapper {
     max-width: 800px;
     margin: 0 auto;
 }
@@ -32,8 +33,10 @@
 
 /* Simulate link underline with background-image line */
 /* Allows dynamic movement of underline on hover */
-.section a {
+a {
     color: hsl(38, 13%, 36%);
+}
+.section a {
     text-decoration: none;
     background-position: 0 1em;
     background-size: 2px 2px;
@@ -319,6 +322,9 @@ pre {
 .btn:hover {
     background-color: hsl(104, 50%, 50%);
     transform: translate(0, 2px);
+    -webkit-box-shadow: 0px 2px 6px -2px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 2px 6px -2px rgba(0,0,0,0.25);
+    box-shadow: 0px 2px 6px -2px rgba(0,0,0,0.25);
 }
 
 .contact-form button {
@@ -378,11 +384,16 @@ pre {
 /********************/
 /* Footer           */
 /********************/
-footer.section {
+footer {
+    padding: 3em 0 4em 0;
+    width: 100%;
     font-size: 1em;
-    background: hsl(15, 13%, 6%);
+    background-color: hsl(15, 13%, 6%);
     color: #ddd;
     min-height: 50px;
+}
+footer .social-links {
+    margin-bottom: 4em;
 }
 
 

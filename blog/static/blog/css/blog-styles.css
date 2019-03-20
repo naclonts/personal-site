@@ -14,7 +14,7 @@ body {
 }
 
 .foreground-container {
-    margin: 0 auto;
+    margin: 0 auto 10em auto;
     background-color: #fff;
     padding-bottom: 2em;
     z-index: 5;
