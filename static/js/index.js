@@ -1,4 +1,11 @@
-import baffle from 'baffle'
+import baffle from 'baffle';
+import hljs from 'highlight.js/lib/highlight';
+import python from 'highlight.js/lib/languages/python';
+import clojure from 'highlight.js/lib/languages/clojure';
+
+// Syntax highlighting
+hljs.registerLanguage('python', python);
+hljs.registerLanguage('clojure', clojure);
 
 /**
  * Set up interactions/animations for front home page
@@ -64,6 +71,8 @@ function baseSetUp() {
     if (b.elements.length > 0) {
         mainPageSetup(b);
     }
+
+    hljs.initHighlightingOnLoad();
 }
 
 

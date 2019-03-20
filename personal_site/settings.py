@@ -130,6 +130,8 @@ USE_TZ = True
 STATIC_URL = '/static_p/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    # Join highlight.js for syntax highlighting CSS
+    os.path.join(BASE_DIR, 'node_modules', 'highlight.js')
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

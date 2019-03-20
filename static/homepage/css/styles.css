@@ -385,7 +385,7 @@ pre {
 /* Footer           */
 /********************/
 footer {
-    padding: 3em 0 4em 0;
+    padding: 3em 4% 4em 4%;
     width: 100%;
     font-size: 1em;
     background-color: hsl(15, 13%, 6%);
