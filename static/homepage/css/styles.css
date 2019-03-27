@@ -340,6 +340,7 @@ pre {
 }
 
 .contact-form input, .contact-form textarea {
+    font-family: inherit;
     text-transform: none;
     font-size: 1.3em;
     color: inherit;
