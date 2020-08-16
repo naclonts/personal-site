@@ -34,8 +34,14 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Then start the server:
+Then start the server for development:
 
 ```shell
 python manage.py runserver
+```
+
+The frontend files should be generated with:
+
+```
+webpack --watch --mode=development
 ```
