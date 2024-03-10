@@ -2,7 +2,6 @@ secret_settings.py
 *.pyc
 __pycache__
 staticfiles/
-media/
 .tern-project
 personal_site/settings.py
 .vscode
