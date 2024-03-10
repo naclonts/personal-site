@@ -1,5 +1,5 @@
 import baffle from 'baffle';
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js/lib/core';
 import python from 'highlight.js/lib/languages/python';
 import clojure from 'highlight.js/lib/languages/clojure';
 
@@ -54,8 +54,10 @@ function mainPageSetup(b) {
 }
 
 function baseSetUp() {
+    console.log('base')
     // Handle burger menu
     $('.hamburger').click(function(e) {
+        console.log(e)
         $(this).toggleClass('is-active');
         $('.menu').toggleClass('hidden');
     });
