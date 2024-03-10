@@ -17,12 +17,12 @@
     "url": "https://github.com/kokopelli314/personal-site/issues"
   },
   "homepage": "https://github.com/kokopelli314/personal-site#readme",
-  "devDependencies": {
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.12"
-  },
   "dependencies": {
     "baffle": "^0.3.6",
-    "highlight.js": "^10.4.1"
+    "highlight.js": "^10.4.1",
+    "webpack": "^5.90.3"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
   }
 }
