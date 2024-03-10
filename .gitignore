@@ -10,3 +10,4 @@ personal_site/settings.py
 /node_modules
 /dist
 /static/dist/
+.venv/

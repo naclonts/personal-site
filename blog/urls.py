@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.post_list, name='post_list'),
-    url(r'^post/(?P<slug>[\w\-]+)$', views.PostView.as_view(), name='post'),
+    re_path(r'^$', views.post_list, name='post_list'),
+    re_path(r'^post/(?P<slug>[\w\-]+)$', views.PostView.as_view(), name='post'),
 ]
